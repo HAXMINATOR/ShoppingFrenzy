@@ -1,4 +1,3 @@
-C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\smallGuy.xnb
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -29,3 +28,12 @@ C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\obj\Debug\U
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\obj\Debug\UnitTestProject.dll
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\obj\Debug\UnitTestProject.pdb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\Display.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayAxe.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayClaw.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayDagger.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayMace.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayShuriken.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayStaff.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\Floor.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\FloorWhite.xnb

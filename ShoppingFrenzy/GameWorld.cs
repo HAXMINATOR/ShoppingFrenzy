@@ -173,6 +173,25 @@ namespace ShoppingFrenzy
             array[array.Length - 1] = input;
         }
            
+        /// <summary>
+        /// Returns first item from array ([0]) and resizes array to exclude the removed items position
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array from which to remove and return first item</param>
+        /// <returns></returns>
+        public static T Dequeue<T>(ref T[] array)
+        {
+            T returnItem = array[0];
+            T[] tmp = new T[array.Length - 1];
+            for (int i = 1; i < array.Length; i++)
+            {
+                tmp[i - 1] = array[i];
+            }
+            array = new T[array.Length - 1];
+            tmp.CopyTo(array, 0);
+
+            return returnItem;
         }
     }
+}
 

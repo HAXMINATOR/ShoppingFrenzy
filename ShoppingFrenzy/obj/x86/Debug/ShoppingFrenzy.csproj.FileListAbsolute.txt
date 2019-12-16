@@ -21,4 +21,12 @@ C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debu
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.csproj.CopyComplete
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.exe
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.pdb
-C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\smallGuy.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\Display.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayAxe.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayClaw.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayDagger.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayMace.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayShuriken.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayStaff.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\Floor.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\FloorWhite.xnb
