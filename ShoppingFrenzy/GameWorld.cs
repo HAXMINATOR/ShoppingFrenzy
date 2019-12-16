@@ -14,8 +14,13 @@ namespace ShoppingFrenzy
 
         public GameWorld()
         {
+            //killroy was here
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = 1020;
+            graphics.PreferredBackBufferHeight = 1020;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
         }
 
         /// <summary>
