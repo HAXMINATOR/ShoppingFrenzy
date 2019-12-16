@@ -11,8 +11,11 @@ namespace ShoppingFrenzy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Shopper[] shoppers = new Shopper[3];
         private Tile[,] mapArray = new Tile[10, 10];
         
+
+        public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
 
         public GameWorld()
         {
@@ -33,6 +36,11 @@ namespace ShoppingFrenzy
         /// </summary>
         protected override void Initialize()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                Shoppers[i] = new Shopper("smallGuy", Content);
+            }
+
             // TODO: Add your initialization logic here
             GenerateMap();
             base.Initialize();
@@ -68,8 +76,11 @@ namespace ShoppingFrenzy
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
+            
+            foreach (Shopper shopper in Shoppers)
+            {
+                shopper.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -88,7 +99,10 @@ namespace ShoppingFrenzy
                 tiles.Draw(spriteBatch);
             }
 
-            // TODO: Add your drawing code here
+            foreach (Shopper shopper in Shoppers)
+            {
+                shopper.Draw(spriteBatch);
+            }
 
             base.Draw(gameTime);
 
@@ -97,6 +111,22 @@ namespace ShoppingFrenzy
 
         private void GenerateMap()
         {
+
+        }
+
+        /// <summary>
+        /// Resizes array and adds input to last position in array
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array in which item will be placed</param>
+        /// <param name="input">Item to add to array</param>
+        public static void Enqueue<T>(ref T[] array, ref T input)
+        {
+            T[] tmp = array;
+            array = new T[array.Length + 1];
+            tmp.CopyTo(array, 0);
+            array[array.Length - 1] = input;
+        }
             for (int i = 0; i < 10; i++)
             {
                 for (int k = 0; k < 10; k++)

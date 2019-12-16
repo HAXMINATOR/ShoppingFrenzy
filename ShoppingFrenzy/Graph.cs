@@ -1,13 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ShoppingFrenzy
 {
-    public class Node
+    public class Graph
     {
-        Edge[] edges = new Edge[4];
-
     }
 }
