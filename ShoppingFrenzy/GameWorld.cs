@@ -12,6 +12,7 @@ namespace ShoppingFrenzy
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Shopper[] shoppers = new Shopper[3];
+        
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
 
@@ -72,7 +73,7 @@ namespace ShoppingFrenzy
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            
             foreach (Shopper shopper in Shoppers)
             {
                 shopper.Update(gameTime);
@@ -87,7 +88,7 @@ namespace ShoppingFrenzy
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SlateBlue);
 
             spriteBatch.Begin();
 
@@ -103,6 +104,41 @@ namespace ShoppingFrenzy
         private void GenerateMap()
         {
 
+        }
+
+        /// <summary>
+        /// Resizes array and adds input to last position in array
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array in which item will be placed</param>
+        /// <param name="input">Item to add to array</param>
+        public static void Enqueue<T>(ref T[] array, ref T input)
+        {
+            T[] tmp = array;
+            array = new T[array.Length + 1];
+            tmp.CopyTo(array, 0);
+            array[array.Length - 1] = input;
+        }
+
+        /// <summary>
+        /// Returns item at position [0] in given array
+        /// Resizes array to remove dequeued item
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array from which the first item will be removed and returned</param>
+        /// <returns></returns>
+        public static T Dequeue<T>(ref T[] array)
+        {
+            T output = array[0];
+            T[] tmp = new T[array.Length - 1];
+            for (int i = 1; i < array.Length; i++)
+            {
+                tmp[i - 1] = array[i];
+            }
+            array = new T[array.Length - 1];
+            tmp.CopyTo(array, 0);
+
+            return output;
         }
     }
 }

@@ -12,5 +12,10 @@ namespace ShoppingFrenzy
         public Shopper(string spriteName, ContentManager content) : base(spriteName, content)
         {
         }
+
+        public void BreadthFirstSearch(Node start, Node end)
+        {
+
+        }
     }
 }

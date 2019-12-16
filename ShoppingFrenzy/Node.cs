@@ -7,5 +7,7 @@ namespace ShoppingFrenzy
 {
     public class Node
     {
+        Edge[] edges = new Edge[4];
+
     }
 }
