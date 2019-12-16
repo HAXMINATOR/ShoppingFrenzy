@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/Display.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayAxe.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayClaw.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayDagger.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayMace.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayShuriken.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayStaff.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/Floor.png</File>
+    <File>C:/Users/mikke/source/repos/ShoppingFrenzy/ShoppingFrenzy/Content/FloorWhite.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

@@ -11,6 +11,7 @@ namespace ShoppingFrenzy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private Tile[,] mapArray = new Tile[10, 10];
         
 
         public GameWorld()
@@ -18,7 +19,7 @@ namespace ShoppingFrenzy
             //killroy was here
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1020;
+            graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1020;
             graphics.ApplyChanges();
             IsMouseVisible = true;
@@ -33,7 +34,7 @@ namespace ShoppingFrenzy
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            GenerateMap();
             base.Initialize();
         }
 
@@ -79,16 +80,68 @@ namespace ShoppingFrenzy
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+            foreach (Tile tiles in mapArray)
+            {
+                tiles.Draw(spriteBatch);
+            }
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+
+            spriteBatch.End();
         }
 
         private void GenerateMap()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    mapArray[i, k] = new Tile(new Vector2(460 + i * 100, 5 + k * 100), Content, "Floor");
+                }
+            }
 
+        //Empty Displays
+            mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
+            mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[0, 9] = new Tile(new Vector2(460 + 0 * 100, 5 + 9 * 100), Content, "Display");
+            mapArray[2, 3] = new Tile(new Vector2(460 + 2 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[2, 4] = new Tile(new Vector2(460 + 2 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[2, 5] = new Tile(new Vector2(460 + 2 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[2, 6] = new Tile(new Vector2(460 + 2 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[3, 4] = new Tile(new Vector2(460 + 3 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[3, 6] = new Tile(new Vector2(460 + 3 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[6, 3] = new Tile(new Vector2(460 + 6 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[6, 4] = new Tile(new Vector2(460 + 6 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[6, 5] = new Tile(new Vector2(460 + 6 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[6, 6] = new Tile(new Vector2(460 + 6 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[7, 3] = new Tile(new Vector2(460 + 7 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[7, 5] = new Tile(new Vector2(460 + 7 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[9, 8] = new Tile(new Vector2(460 + 9 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[8, 8] = new Tile(new Vector2(460 + 8 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[7, 8] = new Tile(new Vector2(460 + 7 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
+
+            //Item Displays
+            mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
+            mapArray[0, 7] = new Tile(new Vector2(460 + 0 * 100, 5 + 7 * 100), Content, "DisplayShuriken");
+            mapArray[3, 3] = new Tile(new Vector2(460 + 3 * 100, 5 + 3 * 100), Content, "DisplayStaff");
+            mapArray[3, 5] = new Tile(new Vector2(460 + 3 * 100, 5 + 5 * 100), Content, "DisplayDagger");
+            mapArray[7, 4] = new Tile(new Vector2(460 + 7 * 100, 5 + 4 * 100), Content, "DisplayClaw");
+            mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
+
+            //Interactable
+            mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
+            mapArray[1, 7] = new Tile(new Vector2(460 + 1 * 100, 5 + 7 * 100), Content, "BuyShuriken");
+            mapArray[4, 3] = new Tile(new Vector2(460 + 4 * 100, 5 + 3 * 100), Content, "BuyStaff");
+            mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
+            mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
+            mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
         }
     }
 }
