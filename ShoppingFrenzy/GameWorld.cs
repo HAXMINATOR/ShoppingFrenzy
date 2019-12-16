@@ -12,6 +12,7 @@ namespace ShoppingFrenzy
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Shopper[] shoppers = new Shopper[3];
+        private Tile[,] mapArray = new Tile[10, 10];
         
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
@@ -21,7 +22,7 @@ namespace ShoppingFrenzy
             //killroy was here
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1020;
+            graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1020;
             graphics.ApplyChanges();
             IsMouseVisible = true;
@@ -40,6 +41,8 @@ namespace ShoppingFrenzy
                 Shoppers[i] = new Shopper("smallGuy", Content);
             }
 
+            // TODO: Add your initialization logic here
+            GenerateMap();
             base.Initialize();
         }
 
@@ -88,9 +91,13 @@ namespace ShoppingFrenzy
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.SlateBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
+            foreach (Tile tiles in mapArray)
+            {
+                tiles.Draw(spriteBatch);
+            }
 
             foreach (Shopper shopper in Shoppers)
             {
@@ -98,11 +105,57 @@ namespace ShoppingFrenzy
             }
 
             base.Draw(gameTime);
+
             spriteBatch.End();
         }
 
         private void GenerateMap()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    mapArray[i, k] = new Tile(new Vector2(460 + i * 100, 5 + k * 100), Content, "Floor");
+                }
+            }
+
+            //Empty Displays
+            mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
+            mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[0, 9] = new Tile(new Vector2(460 + 0 * 100, 5 + 9 * 100), Content, "Display");
+            mapArray[2, 3] = new Tile(new Vector2(460 + 2 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[2, 4] = new Tile(new Vector2(460 + 2 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[2, 5] = new Tile(new Vector2(460 + 2 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[2, 6] = new Tile(new Vector2(460 + 2 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[3, 4] = new Tile(new Vector2(460 + 3 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[3, 6] = new Tile(new Vector2(460 + 3 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[6, 3] = new Tile(new Vector2(460 + 6 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[6, 4] = new Tile(new Vector2(460 + 6 * 100, 5 + 4 * 100), Content, "Display");
+            mapArray[6, 5] = new Tile(new Vector2(460 + 6 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[6, 6] = new Tile(new Vector2(460 + 6 * 100, 5 + 6 * 100), Content, "Display");
+            mapArray[7, 3] = new Tile(new Vector2(460 + 7 * 100, 5 + 3 * 100), Content, "Display");
+            mapArray[7, 5] = new Tile(new Vector2(460 + 7 * 100, 5 + 5 * 100), Content, "Display");
+            mapArray[9, 8] = new Tile(new Vector2(460 + 9 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[8, 8] = new Tile(new Vector2(460 + 8 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[7, 8] = new Tile(new Vector2(460 + 7 * 100, 5 + 8 * 100), Content, "Display");
+            mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
+
+            //Item Displays
+            mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
+            mapArray[0, 7] = new Tile(new Vector2(460 + 0 * 100, 5 + 7 * 100), Content, "DisplayShuriken");
+            mapArray[3, 3] = new Tile(new Vector2(460 + 3 * 100, 5 + 3 * 100), Content, "DisplayStaff");
+            mapArray[3, 5] = new Tile(new Vector2(460 + 3 * 100, 5 + 5 * 100), Content, "DisplayDagger");
+            mapArray[7, 4] = new Tile(new Vector2(460 + 7 * 100, 5 + 4 * 100), Content, "DisplayClaw");
+            mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
+
+            //Interactable
+            mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
+            mapArray[1, 7] = new Tile(new Vector2(460 + 1 * 100, 5 + 7 * 100), Content, "BuyShuriken");
+            mapArray[4, 3] = new Tile(new Vector2(460 + 4 * 100, 5 + 3 * 100), Content, "BuyStaff");
+            mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
+            mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
+            mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
 
         }
 
@@ -119,26 +172,7 @@ namespace ShoppingFrenzy
             tmp.CopyTo(array, 0);
             array[array.Length - 1] = input;
         }
-
-        /// <summary>
-        /// Returns item at position [0] in given array
-        /// Resizes array to remove dequeued item
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="array">Array from which the first item will be removed and returned</param>
-        /// <returns></returns>
-        public static T Dequeue<T>(ref T[] array)
-        {
-            T output = array[0];
-            T[] tmp = new T[array.Length - 1];
-            for (int i = 1; i < array.Length; i++)
-            {
-                tmp[i - 1] = array[i];
-            }
-            array = new T[array.Length - 1];
-            tmp.CopyTo(array, 0);
-
-            return output;
+           
         }
     }
-}
+
