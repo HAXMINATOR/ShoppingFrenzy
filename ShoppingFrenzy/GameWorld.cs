@@ -11,6 +11,7 @@ namespace ShoppingFrenzy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        
 
         public GameWorld()
         {
@@ -78,6 +79,11 @@ namespace ShoppingFrenzy
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        private void GenerateMap()
+        {
+
         }
     }
 }
