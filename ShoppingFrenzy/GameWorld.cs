@@ -111,22 +111,6 @@ namespace ShoppingFrenzy
 
         private void GenerateMap()
         {
-
-        }
-
-        /// <summary>
-        /// Resizes array and adds input to last position in array
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="array">Array in which item will be placed</param>
-        /// <param name="input">Item to add to array</param>
-        public static void Enqueue<T>(ref T[] array, ref T input)
-        {
-            T[] tmp = array;
-            array = new T[array.Length + 1];
-            tmp.CopyTo(array, 0);
-            array[array.Length - 1] = input;
-        }
             for (int i = 0; i < 10; i++)
             {
                 for (int k = 0; k < 10; k++)
@@ -135,7 +119,7 @@ namespace ShoppingFrenzy
                 }
             }
 
-        //Empty Displays
+            //Empty Displays
             mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
             mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
             mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
@@ -172,6 +156,23 @@ namespace ShoppingFrenzy
             mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
             mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
             mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
+
+        }
+
+        /// <summary>
+        /// Resizes array and adds input to last position in array
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array in which item will be placed</param>
+        /// <param name="input">Item to add to array</param>
+        public static void Enqueue<T>(ref T[] array, ref T input)
+        {
+            T[] tmp = array;
+            array = new T[array.Length + 1];
+            tmp.CopyTo(array, 0);
+            array[array.Length - 1] = input;
+        }
+           
         }
     }
-}
+
