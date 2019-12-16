@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingFrenzy
 {
-    class Node
+    public class Node
     {
     }
 }

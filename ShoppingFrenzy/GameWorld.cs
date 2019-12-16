@@ -11,7 +11,9 @@ namespace ShoppingFrenzy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        Shopper[] shoppers = new Shopper[3];
+
+        public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
 
         public GameWorld()
         {
@@ -32,7 +34,10 @@ namespace ShoppingFrenzy
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            for (int i = 0; i < 3; i++)
+            {
+                Shoppers[i] = new Shopper("smallGuy", Content);
+            }
 
             base.Initialize();
         }
@@ -68,7 +73,10 @@ namespace ShoppingFrenzy
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            foreach (Shopper shopper in Shoppers)
+            {
+                shopper.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -81,9 +89,15 @@ namespace ShoppingFrenzy
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            foreach (Shopper shopper in Shoppers)
+            {
+                shopper.Draw(spriteBatch);
+            }
 
             base.Draw(gameTime);
+            spriteBatch.End();
         }
 
         private void GenerateMap()

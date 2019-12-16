@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace ShoppingFrenzy
 {
-    class GameObject
+    public class GameObject
     {
         public Texture2D sprite;
         public Vector2 position;
         public Color color = Color.White;
 
-        public void Update()
+        public GameObject(string spriteName, ContentManager content)
+        {
+            sprite = content.Load<Texture2D>(spriteName);
+        }
+
+        public void Update(GameTime gameTime)
         {
 
         }

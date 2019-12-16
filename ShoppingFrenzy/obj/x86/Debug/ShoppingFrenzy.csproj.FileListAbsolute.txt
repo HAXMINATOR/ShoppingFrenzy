@@ -21,3 +21,4 @@ C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debu
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.csproj.CopyComplete
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.exe
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.pdb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\smallGuy.xnb
