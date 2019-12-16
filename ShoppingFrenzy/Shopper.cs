@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingFrenzy
 {
-    class Shopper
+    class Shopper : GameObject
     {
     }
 }
