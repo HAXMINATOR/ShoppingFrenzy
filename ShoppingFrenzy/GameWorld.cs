@@ -111,6 +111,7 @@ namespace ShoppingFrenzy
 
         private void GenerateMap()
         {
+            //Generates base tiles
             for (int i = 0; i < 10; i++)
             {
                 for (int k = 0; k < 10; k++)
@@ -120,48 +121,123 @@ namespace ShoppingFrenzy
             }
 
             //Empty Displays
-            mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
-            mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
-            mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
-            mapArray[0, 9] = new Tile(new Vector2(460 + 0 * 100, 5 + 9 * 100), Content, "Display");
-            mapArray[2, 3] = new Tile(new Vector2(460 + 2 * 100, 5 + 3 * 100), Content, "Display");
-            mapArray[2, 4] = new Tile(new Vector2(460 + 2 * 100, 5 + 4 * 100), Content, "Display");
-            mapArray[2, 5] = new Tile(new Vector2(460 + 2 * 100, 5 + 5 * 100), Content, "Display");
-            mapArray[2, 6] = new Tile(new Vector2(460 + 2 * 100, 5 + 6 * 100), Content, "Display");
-            mapArray[3, 4] = new Tile(new Vector2(460 + 3 * 100, 5 + 4 * 100), Content, "Display");
-            mapArray[3, 6] = new Tile(new Vector2(460 + 3 * 100, 5 + 6 * 100), Content, "Display");
-            mapArray[6, 3] = new Tile(new Vector2(460 + 6 * 100, 5 + 3 * 100), Content, "Display");
-            mapArray[6, 4] = new Tile(new Vector2(460 + 6 * 100, 5 + 4 * 100), Content, "Display");
-            mapArray[6, 5] = new Tile(new Vector2(460 + 6 * 100, 5 + 5 * 100), Content, "Display");
-            mapArray[6, 6] = new Tile(new Vector2(460 + 6 * 100, 5 + 6 * 100), Content, "Display");
-            mapArray[7, 3] = new Tile(new Vector2(460 + 7 * 100, 5 + 3 * 100), Content, "Display");
-            mapArray[7, 5] = new Tile(new Vector2(460 + 7 * 100, 5 + 5 * 100), Content, "Display");
-            mapArray[9, 8] = new Tile(new Vector2(460 + 9 * 100, 5 + 8 * 100), Content, "Display");
-            mapArray[8, 8] = new Tile(new Vector2(460 + 8 * 100, 5 + 8 * 100), Content, "Display");
-            mapArray[7, 8] = new Tile(new Vector2(460 + 7 * 100, 5 + 8 * 100), Content, "Display");
-            mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
+            mapArray[0, 2] = new Tile(mapArray[0, 2].Position, Content, "Display");
+            mapArray[0, 4] = new Tile(mapArray[0, 4].Position, Content, "Display");
+            mapArray[0, 8] = new Tile(mapArray[0, 8].Position, Content, "Display");
+            mapArray[0, 9] = new Tile(mapArray[0, 9].Position, Content, "Display");
+            mapArray[2, 3] = new Tile(mapArray[2, 3].Position, Content, "Display");
+            mapArray[2, 4] = new Tile(mapArray[2, 4].Position, Content, "Display");
+            mapArray[2, 5] = new Tile(mapArray[2, 5].Position, Content, "Display");
+            mapArray[2, 6] = new Tile(mapArray[2, 6].Position, Content, "Display");
+            mapArray[3, 4] = new Tile(mapArray[3, 4].Position, Content, "Display");
+            mapArray[3, 6] = new Tile(mapArray[3, 6].Position, Content, "Display");
+            mapArray[6, 3] = new Tile(mapArray[6, 3].Position, Content, "Display");
+            mapArray[6, 4] = new Tile(mapArray[6, 4].Position, Content, "Display");
+            mapArray[6, 5] = new Tile(mapArray[6, 5].Position, Content, "Display");
+            mapArray[6, 6] = new Tile(mapArray[6, 6].Position, Content, "Display");
+            mapArray[7, 3] = new Tile(mapArray[7, 3].Position, Content, "Display");
+            mapArray[7, 5] = new Tile(mapArray[7, 5].Position, Content, "Display");
+            mapArray[9, 8] = new Tile(mapArray[9, 8].Position, Content, "Display");
+            mapArray[8, 8] = new Tile(mapArray[8, 8].Position, Content, "Display");
+            mapArray[7, 8] = new Tile(mapArray[7, 8].Position, Content, "Display");
+            mapArray[7, 9] = new Tile(mapArray[7, 9].Position, Content, "Display");
+
+            //Empty displays, hard coded
+            //mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
+            //mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
+            //mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
+            //mapArray[0, 9] = new Tile(new Vector2(460 + 0 * 100, 5 + 9 * 100), Content, "Display");
+            //mapArray[2, 3] = new Tile(new Vector2(460 + 2 * 100, 5 + 3 * 100), Content, "Display");
+            //mapArray[2, 4] = new Tile(new Vector2(460 + 2 * 100, 5 + 4 * 100), Content, "Display");
+            //mapArray[2, 5] = new Tile(new Vector2(460 + 2 * 100, 5 + 5 * 100), Content, "Display");
+            //mapArray[2, 6] = new Tile(new Vector2(460 + 2 * 100, 5 + 6 * 100), Content, "Display");
+            //mapArray[3, 4] = new Tile(new Vector2(460 + 3 * 100, 5 + 4 * 100), Content, "Display");
+            //mapArray[3, 6] = new Tile(new Vector2(460 + 3 * 100, 5 + 6 * 100), Content, "Display");
+            //mapArray[6, 3] = new Tile(new Vector2(460 + 6 * 100, 5 + 3 * 100), Content, "Display");
+            //mapArray[6, 4] = new Tile(new Vector2(460 + 6 * 100, 5 + 4 * 100), Content, "Display");
+            //mapArray[6, 5] = new Tile(new Vector2(460 + 6 * 100, 5 + 5 * 100), Content, "Display");
+            //mapArray[6, 6] = new Tile(new Vector2(460 + 6 * 100, 5 + 6 * 100), Content, "Display");
+            //mapArray[7, 3] = new Tile(new Vector2(460 + 7 * 100, 5 + 3 * 100), Content, "Display");
+            //mapArray[7, 5] = new Tile(new Vector2(460 + 7 * 100, 5 + 5 * 100), Content, "Display");
+            //mapArray[9, 8] = new Tile(new Vector2(460 + 9 * 100, 5 + 8 * 100), Content, "Display");
+            //mapArray[8, 8] = new Tile(new Vector2(460 + 8 * 100, 5 + 8 * 100), Content, "Display");
+            //mapArray[7, 8] = new Tile(new Vector2(460 + 7 * 100, 5 + 8 * 100), Content, "Display");
+            //mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
 
             //Item Displays
-            mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
-            mapArray[0, 7] = new Tile(new Vector2(460 + 0 * 100, 5 + 7 * 100), Content, "DisplayShuriken");
-            mapArray[3, 3] = new Tile(new Vector2(460 + 3 * 100, 5 + 3 * 100), Content, "DisplayStaff");
-            mapArray[3, 5] = new Tile(new Vector2(460 + 3 * 100, 5 + 5 * 100), Content, "DisplayDagger");
-            mapArray[7, 4] = new Tile(new Vector2(460 + 7 * 100, 5 + 4 * 100), Content, "DisplayClaw");
-            mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
+            mapArray[0, 3] = new Tile(mapArray[0, 3].Position, Content, "DisplayAxe");
+            mapArray[0, 7] = new Tile(mapArray[0, 7].Position, Content, "DisplayShuriken");
+            mapArray[3, 3] = new Tile(mapArray[3, 3].Position, Content, "DisplayStaff");
+            mapArray[3, 5] = new Tile(mapArray[3, 5].Position, Content, "DisplayDagger");
+            mapArray[7, 4] = new Tile(mapArray[7, 4].Position, Content, "DisplayClaw");
+            mapArray[7, 6] = new Tile(mapArray[7, 6].Position, Content, "DisplayMace");
+
+            //Item displays, hard coded
+            //mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
+            //mapArray[0, 7] = new Tile(new Vector2(460 + 0 * 100, 5 + 7 * 100), Content, "DisplayShuriken");
+            //mapArray[3, 3] = new Tile(new Vector2(460 + 3 * 100, 5 + 3 * 100), Content, "DisplayStaff");
+            //mapArray[3, 5] = new Tile(new Vector2(460 + 3 * 100, 5 + 5 * 100), Content, "DisplayDagger");
+            //mapArray[7, 4] = new Tile(new Vector2(460 + 7 * 100, 5 + 4 * 100), Content, "DisplayClaw");
+            //mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
 
             //Interactable
-            mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
-            mapArray[1, 7] = new Tile(new Vector2(460 + 1 * 100, 5 + 7 * 100), Content, "BuyShuriken");
-            mapArray[4, 3] = new Tile(new Vector2(460 + 4 * 100, 5 + 3 * 100), Content, "BuyStaff");
-            mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
-            mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
-            mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
+            mapArray[1, 3] = new Tile(mapArray[1, 3].Position, Content, "BuyAxe");
+            mapArray[1, 7] = new Tile(mapArray[1, 7].Position, Content, "BuyShuriken");
+            mapArray[4, 3] = new Tile(mapArray[4, 3].Position, Content, "BuyStaff");
+            mapArray[4, 5] = new Tile(mapArray[4, 5].Position, Content, "BuyDagger");
+            mapArray[8, 4] = new Tile(mapArray[8, 4].Position, Content, "BuyClaw");
+            mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
 
+            //Interactable, hard coded
+            //mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
+            //mapArray[1, 7] = new Tile(new Vector2(460 + 1 * 100, 5 + 7 * 100), Content, "BuyShuriken");
+            //mapArray[4, 3] = new Tile(new Vector2(460 + 4 * 100, 5 + 3 * 100), Content, "BuyStaff");
+            //mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
+            //mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
+            //mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
+
+            //Adds nodes for each tile
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
                     mapArray[i, j].Node = new Node();
+                }
+            }
+
+            //Adds edges for each node
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (j != 0) //Checks limit values
+                    {
+                        if (mapArray[i, j - 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[0] = new Edge();
+                        }
+                    }
+                    if (i != 0) //Checks limit values
+                    {
+                        if (mapArray[i - 1, j].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[1] = new Edge();
+                        }
+                    }
+                    if (j != 9) //Checks limit values
+                    {
+                        if (mapArray[i, j + 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[2] = new Edge();
+                        }
+                    }
+                    if (i != 9) //Checks limit values
+                    {
+                        if (mapArray[i + 1, j].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[3] = new Edge();
+                        }
+                    }
                 }
             }
         }

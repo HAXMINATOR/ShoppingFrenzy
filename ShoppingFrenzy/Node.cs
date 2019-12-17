@@ -12,5 +12,7 @@ namespace ShoppingFrenzy
         public Node()
         {
         }
+
+        public Edge[] Edges { get => edges; set => edges = value; }
     }
 }

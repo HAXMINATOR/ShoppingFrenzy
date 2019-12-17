@@ -14,13 +14,14 @@ namespace ShoppingFrenzy
         protected float rotation;
         private Vector2 position;
         protected ContentManager content;
-        private bool Walkable;
+        private bool walkable;
         private string buyItem;
         private Node node;
 
         public Vector2 Position { get => position; }
         public Node Node { get => node; set => node = value; }
-        
+        public bool Walkable { get => walkable; set => walkable = value; }
+
         //DIfferent tiles
         public Tile(Vector2 startPosition, ContentManager content, string tileType)
         {
