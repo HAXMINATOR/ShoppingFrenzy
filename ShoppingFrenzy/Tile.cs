@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingFrenzy
 {
-    class Tile
+    public class Tile
     {
         protected Texture2D sprite;
         protected float rotation;
@@ -17,16 +17,26 @@ namespace ShoppingFrenzy
         private bool walkable;
         private string buyItem;
         private Node node;
+        private string tileType;
+        private static readonly string[] buyAbles = new string[] { "BuyAxe", "BuyClaw", "BuyDagger", "BuyMace", "BuyShuriken", "BuyStaff" };
 
         public Vector2 Position { get => position; }
         public Node Node { get => node; set => node = value; }
         public bool Walkable { get => walkable; set => walkable = value; }
+        public static string[] BuyAbles { get => buyAbles; }
+        public string TileType { get => tileType; set => tileType = value; }
+
+        public Tile()
+        {
+
+        }
 
         //DIfferent tiles
         public Tile(Vector2 startPosition, ContentManager content, string tileType)
         {
             position = startPosition;
             this.content = content;
+            this.TileType = tileType;
 
             switch (tileType)
             {

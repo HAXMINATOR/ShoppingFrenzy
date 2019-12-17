@@ -19,7 +19,6 @@ namespace ShoppingFrenzy
 
         public GameWorld()
         {
-            //killroy was here
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1920;
@@ -40,9 +39,9 @@ namespace ShoppingFrenzy
             {
                 Shoppers[i] = new Shopper("smallGuy", Content);
             }
-
-            // TODO: Add your initialization logic here
+            
             GenerateMap();
+
             base.Initialize();
         }
 
@@ -52,10 +51,7 @@ namespace ShoppingFrenzy
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -64,7 +60,7 @@ namespace ShoppingFrenzy
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            
         }
 
         /// <summary>
@@ -94,6 +90,7 @@ namespace ShoppingFrenzy
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
+
             foreach (Tile tiles in mapArray)
             {
                 tiles.Draw(spriteBatch);
@@ -114,9 +111,9 @@ namespace ShoppingFrenzy
             //Generates base tiles
             for (int i = 0; i < 10; i++)
             {
-                for (int k = 0; k < 10; k++)
+                for (int j = 0; j < 10; j++)
                 {
-                    mapArray[i, k] = new Tile(new Vector2(460 + i * 100, 5 + k * 100), Content, "Floor");
+                    mapArray[i, j] = new Tile(new Vector2(460 + i * 100, 5 + j * 100), Content, "Floor");
                 }
             }
 
@@ -196,12 +193,16 @@ namespace ShoppingFrenzy
             //mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
             //mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
 
+            int index = 0;
+
             //Adds nodes for each tile
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
                     mapArray[i, j].Node = new Node();
+                    mapArray[i, j].Node.Index = index;
+                    index++;
                 }
             }
 
@@ -214,28 +215,28 @@ namespace ShoppingFrenzy
                     {
                         if (mapArray[i, j - 1].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[0] = new Edge();
+                            mapArray[i, j].Node.Edges[0] = new Edge(mapArray[i, j].Node, mapArray[i, j - 1].Node);
                         }
                     }
                     if (i != 0) //Checks limit values
                     {
                         if (mapArray[i - 1, j].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[1] = new Edge();
+                            mapArray[i, j].Node.Edges[1] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j].Node);
                         }
                     }
                     if (j != 9) //Checks limit values
                     {
                         if (mapArray[i, j + 1].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[2] = new Edge();
+                            mapArray[i, j].Node.Edges[2] = new Edge(mapArray[i, j].Node, mapArray[i, j + 1].Node);
                         }
                     }
                     if (i != 9) //Checks limit values
                     {
                         if (mapArray[i + 1, j].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[3] = new Edge();
+                            mapArray[i, j].Node.Edges[3] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j].Node);
                         }
                     }
                 }
