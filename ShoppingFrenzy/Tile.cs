@@ -5,7 +5,6 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Content;
 
 namespace ShoppingFrenzy
 {
@@ -13,114 +12,86 @@ namespace ShoppingFrenzy
     {
         protected Texture2D sprite;
         protected float rotation;
-        protected Vector2 position;
-        public Vector2 Position { get => position; }
+        private Vector2 position;
         protected ContentManager content;
         private bool Walkable;
         private string buyItem;
-    
+        private Node node;
+
+        public Vector2 Position { get => position; }
+        public Node Node { get => node; set => node = value; }
+        
         //DIfferent tiles
         public Tile(Vector2 startPosition, ContentManager content, string tileType)
         {
             position = startPosition;
             this.content = content;
 
-            if (tileType == "Floor")
+            switch (tileType)
             {
-                sprite = content.Load<Texture2D>("Floor");
-                Walkable = true;
+                case "Floor":
+                    sprite = content.Load<Texture2D>("Floor");
+                    Walkable = true;
+                    break;
+                case "Display":
+                    sprite = content.Load<Texture2D>("Display");
+                    Walkable = false;
+                    break;
+                case "DisplayAxe":
+                    sprite = content.Load<Texture2D>("DisplayAxe");
+                    Walkable = false;
+                    break;
+                case "DisplayClaw":
+                    sprite = content.Load<Texture2D>("DisplayClaw");
+                    Walkable = false;
+                    break;
+                case "DisplayDagger":
+                    sprite = content.Load<Texture2D>("DisplayDagger");
+                    Walkable = false;
+                    break;
+                case "DisplayMace":
+                    sprite = content.Load<Texture2D>("DisplayMace");
+                    Walkable = false;
+                    break;
+                case "DisplayShuriken":
+                    sprite = content.Load<Texture2D>("DisplayShuriken");
+                    Walkable = false;
+                    break;
+                case "DisplayStaff":
+                    sprite = content.Load<Texture2D>("DisplayStaff");
+                    Walkable = false;
+                    break;
+                case "BuyAxe":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
+                case "BuyClaw":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
+                case "BuyDagger":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
+                case "BuyMace":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
+                case "BuyShuriken":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
+                case "BuyStaff":
+                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Axe";
+                    break;
             }
-
-            if (tileType == "Display")
-            {
-                sprite = content.Load<Texture2D>("Display");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayAxe")
-            {
-                sprite = content.Load<Texture2D>("DisplayAxe");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayClaw")
-            {
-                sprite = content.Load<Texture2D>("DisplayClaw");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayDagger")
-            {
-                sprite = content.Load<Texture2D>("DisplayDagger");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayMace")
-            {
-                sprite = content.Load<Texture2D>("DisplayMace");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayShuriken")
-            {
-                sprite = content.Load<Texture2D>("DisplayShuriken");
-                Walkable = false;
-            }
-
-            if (tileType == "DisplayStaff")
-            {
-                sprite = content.Load<Texture2D>("DisplayStaff");
-                Walkable = false;
-            }
-
-            if (tileType == "BuyAxe")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Axe";
-
-            }
-
-            if (tileType == "BuyClaw")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Claw";
-
-            }
-
-            if (tileType == "BuyDagger")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Dagger";
-
-            }
-
-            if (tileType == "BuyMace")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Mace";
-
-            }
-
-            if (tileType == "BuyShuriken")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Shuriken";
-
-            }
-
-            if (tileType == "BuyStaff")
-            {
-                sprite = content.Load<Texture2D>("FloorWhite");
-                Walkable = true;
-                buyItem = "Staff";
-
-            }
-
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

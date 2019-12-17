@@ -157,6 +157,13 @@ namespace ShoppingFrenzy
             mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
             mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
 
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    mapArray[i, j].Node = new Node();
+                }
+            }
         }
 
         /// <summary>

@@ -30,3 +30,4 @@ C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\DisplayStaff.xnb
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\Floor.xnb
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\FloorWhite.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\smallGuy.xnb

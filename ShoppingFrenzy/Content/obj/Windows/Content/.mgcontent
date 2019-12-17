@@ -13,8 +13,10 @@
     <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayStaff.png</File>
     <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/Floor.png</File>
     <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/FloorWhite.png</File>
+    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/smallGuy.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

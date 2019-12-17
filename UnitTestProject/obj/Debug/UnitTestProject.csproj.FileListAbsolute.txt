@@ -37,3 +37,4 @@ C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\C
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\DisplayStaff.xnb
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\Floor.xnb
 C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\FloorWhite.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\UnitTestProject\bin\Debug\Content\smallGuy.xnb
