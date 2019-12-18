@@ -117,6 +117,7 @@ namespace ShoppingFrenzy
                 }
             }
 
+            #region Specific tiles
             //Empty Displays
             mapArray[0, 2] = new Tile(mapArray[0, 2].Position, Content, "Display");
             mapArray[0, 4] = new Tile(mapArray[0, 4].Position, Content, "Display");
@@ -154,7 +155,8 @@ namespace ShoppingFrenzy
             mapArray[4, 5] = new Tile(mapArray[4, 5].Position, Content, "BuyDagger");
             mapArray[8, 4] = new Tile(mapArray[8, 4].Position, Content, "BuyClaw");
             mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
-            
+            #endregion
+
             int index = 0;
 
             //Adds nodes for each tile
@@ -178,6 +180,7 @@ namespace ShoppingFrenzy
             {
                 for (int j = 0; j < 10; j++)
                 {
+                    #region Horizontal/Vertical
                     if (j != 0) //Checks limit values
                     {
                         if (mapArray[i, j - 1].Walkable)
@@ -206,6 +209,37 @@ namespace ShoppingFrenzy
                             mapArray[i, j].Node.Edges[3] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j].Node);
                         }
                     }
+                    #endregion
+                    #region Diagonal
+                    if (i != 0 && j != 0) //Checks limit values
+                    {
+                        if (mapArray[i - 1, j - 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[4] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j - 1].Node);
+                        }
+                    }
+                    if (i != 9 && j != 0) //Checks limit values
+                    {
+                        if (mapArray[i + 1, j - 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[5] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j - 1].Node);
+                        }
+                    }
+                    if (i != 0 && j != 9) //Checks limit values
+                    {
+                        if (mapArray[i - 1, j + 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[6] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j + 1].Node);
+                        }
+                    }
+                    if (i != 9 && j != 9) //Checks limit values
+                    {
+                        if (mapArray[i + 1, j + 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[7] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j + 1].Node);
+                        }
+                    }
+                    #endregion
                 }
             }
         }
