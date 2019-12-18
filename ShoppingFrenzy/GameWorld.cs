@@ -13,7 +13,7 @@ namespace ShoppingFrenzy
         SpriteBatch spriteBatch;
         Shopper[] shoppers = new Shopper[3];
         private Tile[,] mapArray = new Tile[10, 10];
-        
+        Node[,] nodeArray = new Node[10, 10];
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
 
@@ -165,6 +165,10 @@ namespace ShoppingFrenzy
                     mapArray[i, j].Node = new Node();
                     mapArray[i, j].Node.Index = index;
                     index++;
+                    if (mapArray[i, j].Walkable)
+                    {
+                        nodeArray[i, j] = mapArray[i, j].Node;
+                    }
                 }
             }
 
