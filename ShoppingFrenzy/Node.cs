@@ -18,6 +18,9 @@ namespace ShoppingFrenzy
         {
         }
 
+        /// <summary>
+        /// An array 
+        /// </summary>
         public Edge[] Edges { get => edges; set => edges = value; }
         public bool Discovered { get => discovered; set => discovered = value; }
         public int Index { get => index; set => index = value; }
