@@ -163,6 +163,7 @@ namespace ShoppingFrenzy
                 for (int j = 0; j < 10; j++)
                 {
                     mapArray[i, j].Node = new Node();
+                    mapArray[i, j].Node.Position = mapArray[i, j].Position + new Vector2(mapArray[i, j].Sprite.Width * 0.5f);
                     mapArray[i, j].Node.Index = index;
                     index++;
                     if (mapArray[i, j].Walkable)
