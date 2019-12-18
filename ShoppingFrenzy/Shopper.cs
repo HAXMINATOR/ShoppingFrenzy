@@ -10,7 +10,7 @@ namespace ShoppingFrenzy
     public class Shopper : GameObject
     {
         private string[] shoppingList = new string[3];
-        private string[] bought = new string[3];
+        private string[] bought = new string[0];
         private Node currentNode;
 
         public Shopper()
@@ -46,9 +46,17 @@ namespace ShoppingFrenzy
                 for (int i = 0; i < edge.Child.Edges.Length; i++)
                 {
                     Edge wedge = edge.Child.Edges[i];
-                    if (!wedge.Child.Discovered && wedge != null)
+                    if (wedge != null && !wedge.Child.Discovered)
                     {
-                        GameWorld.Enqueue(ref edgeQueue, ref wedge.Child.Edges[i]);
+                        for (int j = 0; j < wedge.Child.Edges.Length; j++)
+                        {
+                            if (wedge.Child.Edges[j] != null && !wedge.Child.Edges[j].Child.Discovered)
+                            {
+                                GameWorld.Enqueue(ref edgeQueue, ref wedge.Child.Edges[j]);
+                            }
+                        }
+
+                        wedge.Parent.Discovered = true;
                         wedge.Child.Discovered = true;
                         wedge.Parent = edge.Child;
                     }
