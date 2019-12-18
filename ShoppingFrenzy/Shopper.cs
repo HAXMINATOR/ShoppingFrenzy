@@ -27,6 +27,11 @@ namespace ShoppingFrenzy
             }
         }
 
+        /// <summary>
+        /// doesn't work
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void BreadthFirstSearch(Node start, Node end)
         {
             Edge[] edgeQueue = new Edge[0];
