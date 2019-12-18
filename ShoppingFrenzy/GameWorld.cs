@@ -15,10 +15,6 @@ namespace ShoppingFrenzy
         Shopper[] shoppers = new Shopper[3];
         private static Tile[,] mapArray = new Tile[10, 10];
         SpriteFont font;
-
-        
-
-        private Tile[,] mapArray = new Tile[10, 10];
         Node[,] nodeArray = new Node[10, 10];
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
@@ -176,6 +172,7 @@ namespace ShoppingFrenzy
                 {
                     mapArray[i, j].Node = new Node();
                     mapArray[i, j].Node.Position = mapArray[i, j].Position + new Vector2(mapArray[i, j].Sprite.Width * 0.5f);
+                    mapArray[i, j].Node.Tile = mapArray[i, j];
                     mapArray[i, j].Node.Index = index;
                     index++;
                     if (mapArray[i, j].Walkable)
@@ -306,50 +303,69 @@ namespace ShoppingFrenzy
                     //Go to tile and grab item
                 }
 
+                Tile[] path = new Tile[0];
+
+
                 while (pathing == true)
                 {
-                    if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
+                    Tile smallestHTile = customer.CurrentNode.Edges[0].Child.Tile;
+
+                    for (int i = 0; i < customer.CurrentNode.Edges.Length; i++)
                     {
-                        tempFvalue1 = customer.ShopperMap[customer.TileXPosition + 1, customer.TileYPosition].HValue + currentGValue;
+                        if (customer.CurrentNode.Edges[i] != null && customer.CurrentNode.Edges[i].Child.Tile.HValue < smallestHTile.HValue)
+                        {
+                            smallestHTile = customer.CurrentNode.Edges[i].Child.Tile;
+                        }
                     }
 
-                    else
+                    Enqueue(ref path, ref smallestHTile);
+
+                    //if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
+                    //{
+                    //    tempFvalue1 = customer.ShopperMap[customer.TileXPosition + 1, customer.TileYPosition].HValue + currentGValue;
+                    //}
+
+                    //else
+                    //{
+                    //    tempFvalue1 = 9999;
+                    //}
+
+                    //if (customer.ShopperMap[tempTileX - 1, tempTileY].Walkable == true && tempTileX - 1 >= 0)
+                    //{
+                    //    tempFvalue2 = customer.ShopperMap[customer.TileXPosition - 1, customer.TileYPosition].HValue + currentGValue;
+                    //}
+
+                    //else
+                    //{
+                    //    tempFvalue2 = 9999;
+                    //}
+
+                    //if (customer.ShopperMap[tempTileX, tempTileY + 1].Walkable == true && tempTileY + 1 <= 9)
+                    //{
+                    //    tempFvalue3 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition + 1].HValue + currentGValue;
+                    //}
+
+                    //else
+                    //{
+                    //    tempFvalue3 = 9999;
+                    //}
+
+                    //if (customer.ShopperMap[tempTileX, tempTileY - 1].Walkable == true && tempTileY - 1 >= 0)
+                    //{
+                    //    tempFvalue4 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition - 1].HValue + currentGValue;
+                    //}
+
+                    //else
+                    //{
+                    //    tempFvalue4 = 9999;
+                    //}
+
+                    //MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
+
+                    if (smallestHTile == MapArray[targetTileX, targetTileY]) 
                     {
-                        tempFvalue1 = 9999;
+                        pathing = false;
                     }
-
-                    if (customer.ShopperMap[tempTileX - 1, tempTileY].Walkable == true && tempTileX - 1 >= 0)
-                    {
-                        tempFvalue2 = customer.ShopperMap[customer.TileXPosition - 1, customer.TileYPosition].HValue + currentGValue;
-                    }
-
-                    else
-                    {
-                        tempFvalue2 = 9999;
-                    }
-
-                    if (customer.ShopperMap[tempTileX, tempTileY + 1].Walkable == true && tempTileY + 1 <= 9)
-                    {
-                        tempFvalue3 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition + 1].HValue + currentGValue;
-                    }
-
-                    else
-                    {
-                        tempFvalue3 = 9999;
-                    }
-
-                    if (customer.ShopperMap[tempTileX, tempTileY - 1].Walkable == true && tempTileY - 1 >= 0)
-                    {
-                        tempFvalue4 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition - 1].HValue + currentGValue;
-                    }
-
-                    else
-                    {
-                        tempFvalue4 = 9999;
-                    }
-
-                    MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
-
                 }
             }
         }
