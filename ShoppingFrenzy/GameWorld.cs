@@ -18,6 +18,9 @@ namespace ShoppingFrenzy
 
         
 
+        private Tile[,] mapArray = new Tile[10, 10];
+        Node[,] nodeArray = new Node[10, 10];
+
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
         public static Tile[,] MapArray { get => mapArray; set => mapArray = value; }
 
@@ -124,81 +127,45 @@ namespace ShoppingFrenzy
                 }
             }
 
+            #region Specific tiles
             //Empty Displays
-            MapArray[0, 2] = new Tile(MapArray[0, 2].Position, Content, "Display");
-            MapArray[0, 4] = new Tile(MapArray[0, 4].Position, Content, "Display");
-            MapArray[0, 8] = new Tile(MapArray[0, 8].Position, Content, "Display");
-            MapArray[0, 9] = new Tile(MapArray[0, 9].Position, Content, "Display");
-            MapArray[2, 3] = new Tile(MapArray[2, 3].Position, Content, "Display");
-            MapArray[2, 4] = new Tile(MapArray[2, 4].Position, Content, "Display");
-            MapArray[2, 5] = new Tile(MapArray[2, 5].Position, Content, "Display");
-            MapArray[2, 6] = new Tile(MapArray[2, 6].Position, Content, "Display");
-            MapArray[3, 4] = new Tile(MapArray[3, 4].Position, Content, "Display");
-            MapArray[3, 6] = new Tile(MapArray[3, 6].Position, Content, "Display");
-            MapArray[6, 3] = new Tile(MapArray[6, 3].Position, Content, "Display");
-            MapArray[6, 4] = new Tile(MapArray[6, 4].Position, Content, "Display");
-            MapArray[6, 5] = new Tile(MapArray[6, 5].Position, Content, "Display");
-            MapArray[6, 6] = new Tile(MapArray[6, 6].Position, Content, "Display");
-            MapArray[7, 3] = new Tile(MapArray[7, 3].Position, Content, "Display");
-            MapArray[7, 5] = new Tile(MapArray[7, 5].Position, Content, "Display");
-            MapArray[9, 8] = new Tile(MapArray[9, 8].Position, Content, "Display");
-            MapArray[8, 8] = new Tile(MapArray[8, 8].Position, Content, "Display");
-            MapArray[7, 8] = new Tile(MapArray[7, 8].Position, Content, "Display");
-            MapArray[7, 9] = new Tile(MapArray[7, 9].Position, Content, "Display");
-
-            //Empty displays, hard coded
-            //mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
-            //mapArray[0, 4] = new Tile(new Vector2(460 + 0 * 100, 5 + 4 * 100), Content, "Display");
-            //mapArray[0, 8] = new Tile(new Vector2(460 + 0 * 100, 5 + 8 * 100), Content, "Display");
-            //mapArray[0, 9] = new Tile(new Vector2(460 + 0 * 100, 5 + 9 * 100), Content, "Display");
-            //mapArray[2, 3] = new Tile(new Vector2(460 + 2 * 100, 5 + 3 * 100), Content, "Display");
-            //mapArray[2, 4] = new Tile(new Vector2(460 + 2 * 100, 5 + 4 * 100), Content, "Display");
-            //mapArray[2, 5] = new Tile(new Vector2(460 + 2 * 100, 5 + 5 * 100), Content, "Display");
-            //mapArray[2, 6] = new Tile(new Vector2(460 + 2 * 100, 5 + 6 * 100), Content, "Display");
-            //mapArray[3, 4] = new Tile(new Vector2(460 + 3 * 100, 5 + 4 * 100), Content, "Display");
-            //mapArray[3, 6] = new Tile(new Vector2(460 + 3 * 100, 5 + 6 * 100), Content, "Display");
-            //mapArray[6, 3] = new Tile(new Vector2(460 + 6 * 100, 5 + 3 * 100), Content, "Display");
-            //mapArray[6, 4] = new Tile(new Vector2(460 + 6 * 100, 5 + 4 * 100), Content, "Display");
-            //mapArray[6, 5] = new Tile(new Vector2(460 + 6 * 100, 5 + 5 * 100), Content, "Display");
-            //mapArray[6, 6] = new Tile(new Vector2(460 + 6 * 100, 5 + 6 * 100), Content, "Display");
-            //mapArray[7, 3] = new Tile(new Vector2(460 + 7 * 100, 5 + 3 * 100), Content, "Display");
-            //mapArray[7, 5] = new Tile(new Vector2(460 + 7 * 100, 5 + 5 * 100), Content, "Display");
-            //mapArray[9, 8] = new Tile(new Vector2(460 + 9 * 100, 5 + 8 * 100), Content, "Display");
-            //mapArray[8, 8] = new Tile(new Vector2(460 + 8 * 100, 5 + 8 * 100), Content, "Display");
-            //mapArray[7, 8] = new Tile(new Vector2(460 + 7 * 100, 5 + 8 * 100), Content, "Display");
-            //mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
-
+            mapArray[0, 2] = new Tile(mapArray[0, 2].Position, Content, "Display");
+            mapArray[0, 4] = new Tile(mapArray[0, 4].Position, Content, "Display");
+            mapArray[0, 8] = new Tile(mapArray[0, 8].Position, Content, "Display");
+            mapArray[0, 9] = new Tile(mapArray[0, 9].Position, Content, "Display");
+            mapArray[2, 3] = new Tile(mapArray[2, 3].Position, Content, "Display");
+            mapArray[2, 4] = new Tile(mapArray[2, 4].Position, Content, "Display");
+            mapArray[2, 5] = new Tile(mapArray[2, 5].Position, Content, "Display");
+            mapArray[2, 6] = new Tile(mapArray[2, 6].Position, Content, "Display");
+            mapArray[3, 4] = new Tile(mapArray[3, 4].Position, Content, "Display");
+            mapArray[3, 6] = new Tile(mapArray[3, 6].Position, Content, "Display");
+            mapArray[6, 3] = new Tile(mapArray[6, 3].Position, Content, "Display");
+            mapArray[6, 4] = new Tile(mapArray[6, 4].Position, Content, "Display");
+            mapArray[6, 5] = new Tile(mapArray[6, 5].Position, Content, "Display");
+            mapArray[6, 6] = new Tile(mapArray[6, 6].Position, Content, "Display");
+            mapArray[7, 3] = new Tile(mapArray[7, 3].Position, Content, "Display");
+            mapArray[7, 5] = new Tile(mapArray[7, 5].Position, Content, "Display");
+            mapArray[9, 8] = new Tile(mapArray[9, 8].Position, Content, "Display");
+            mapArray[8, 8] = new Tile(mapArray[8, 8].Position, Content, "Display");
+            mapArray[7, 8] = new Tile(mapArray[7, 8].Position, Content, "Display");
+            mapArray[7, 9] = new Tile(mapArray[7, 9].Position, Content, "Display");
+            
             //Item Displays
-            MapArray[0, 3] = new Tile(MapArray[0, 3].Position, Content, "DisplayAxe");
-            MapArray[0, 7] = new Tile(MapArray[0, 7].Position, Content, "DisplayShuriken");
-            MapArray[3, 3] = new Tile(MapArray[3, 3].Position, Content, "DisplayStaff");
-            MapArray[3, 5] = new Tile(MapArray[3, 5].Position, Content, "DisplayDagger");
-            MapArray[7, 4] = new Tile(MapArray[7, 4].Position, Content, "DisplayClaw");
-            MapArray[7, 6] = new Tile(MapArray[7, 6].Position, Content, "DisplayMace");
-
-            //Item displays, hard coded
-            //mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
-            //mapArray[0, 7] = new Tile(new Vector2(460 + 0 * 100, 5 + 7 * 100), Content, "DisplayShuriken");
-            //mapArray[3, 3] = new Tile(new Vector2(460 + 3 * 100, 5 + 3 * 100), Content, "DisplayStaff");
-            //mapArray[3, 5] = new Tile(new Vector2(460 + 3 * 100, 5 + 5 * 100), Content, "DisplayDagger");
-            //mapArray[7, 4] = new Tile(new Vector2(460 + 7 * 100, 5 + 4 * 100), Content, "DisplayClaw");
-            //mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
-
+            mapArray[0, 3] = new Tile(mapArray[0, 3].Position, Content, "DisplayAxe");
+            mapArray[0, 7] = new Tile(mapArray[0, 7].Position, Content, "DisplayShuriken");
+            mapArray[3, 3] = new Tile(mapArray[3, 3].Position, Content, "DisplayStaff");
+            mapArray[3, 5] = new Tile(mapArray[3, 5].Position, Content, "DisplayDagger");
+            mapArray[7, 4] = new Tile(mapArray[7, 4].Position, Content, "DisplayClaw");
+            mapArray[7, 6] = new Tile(mapArray[7, 6].Position, Content, "DisplayMace");
+            
             //Interactable
-            MapArray[1, 3] = new Tile(MapArray[1, 3].Position, Content, "BuyAxe");
-            MapArray[1, 7] = new Tile(MapArray[1, 7].Position, Content, "BuyShuriken");
-            MapArray[4, 3] = new Tile(MapArray[4, 3].Position, Content, "BuyStaff");
-            MapArray[4, 5] = new Tile(MapArray[4, 5].Position, Content, "BuyDagger");
-            MapArray[8, 4] = new Tile(MapArray[8, 4].Position, Content, "BuyClaw");
-            MapArray[8, 6] = new Tile(MapArray[8, 6].Position, Content, "BuyMace");
-
-            //Interactable, hard coded
-            //mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
-            //mapArray[1, 7] = new Tile(new Vector2(460 + 1 * 100, 5 + 7 * 100), Content, "BuyShuriken");
-            //mapArray[4, 3] = new Tile(new Vector2(460 + 4 * 100, 5 + 3 * 100), Content, "BuyStaff");
-            //mapArray[4, 5] = new Tile(new Vector2(460 + 4 * 100, 5 + 5 * 100), Content, "BuyDagger");
-            //mapArray[8, 4] = new Tile(new Vector2(460 + 8 * 100, 5 + 4 * 100), Content, "BuyClaw");
-            //mapArray[8, 6] = new Tile(new Vector2(460 + 8 * 100, 5 + 6 * 100), Content, "BuyMace");
+            mapArray[1, 3] = new Tile(mapArray[1, 3].Position, Content, "BuyAxe");
+            mapArray[1, 7] = new Tile(mapArray[1, 7].Position, Content, "BuyShuriken");
+            mapArray[4, 3] = new Tile(mapArray[4, 3].Position, Content, "BuyStaff");
+            mapArray[4, 5] = new Tile(mapArray[4, 5].Position, Content, "BuyDagger");
+            mapArray[8, 4] = new Tile(mapArray[8, 4].Position, Content, "BuyClaw");
+            mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
+            #endregion
 
             int index = 0;
 
@@ -207,9 +174,14 @@ namespace ShoppingFrenzy
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    MapArray[i, j].Node = new Node();
-                    MapArray[i, j].Node.Index = index;
+                    mapArray[i, j].Node = new Node();
+                    mapArray[i, j].Node.Position = mapArray[i, j].Position + new Vector2(mapArray[i, j].Sprite.Width * 0.5f);
+                    mapArray[i, j].Node.Index = index;
                     index++;
+                    if (mapArray[i, j].Walkable)
+                    {
+                        nodeArray[i, j] = mapArray[i, j].Node;
+                    }
                 }
             }
 
@@ -218,6 +190,7 @@ namespace ShoppingFrenzy
             {
                 for (int j = 0; j < 10; j++)
                 {
+                    #region Horizontal/Vertical
                     if (j != 0) //Checks limit values
                     {
                         if (MapArray[i, j - 1].Walkable)
@@ -247,6 +220,37 @@ namespace ShoppingFrenzy
                         }
                         
                     }
+                    #endregion
+                    #region Diagonal
+                    if (i != 0 && j != 0) //Checks limit values
+                    {
+                        if (mapArray[i - 1, j - 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[4] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j - 1].Node);
+                        }
+                    }
+                    if (i != 9 && j != 0) //Checks limit values
+                    {
+                        if (mapArray[i + 1, j - 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[5] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j - 1].Node);
+                        }
+                    }
+                    if (i != 0 && j != 9) //Checks limit values
+                    {
+                        if (mapArray[i - 1, j + 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[6] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j + 1].Node);
+                        }
+                    }
+                    if (i != 9 && j != 9) //Checks limit values
+                    {
+                        if (mapArray[i + 1, j + 1].Walkable)
+                        {
+                            mapArray[i, j].Node.Edges[7] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j + 1].Node);
+                        }
+                    }
+                    #endregion
                 }
             }
         }

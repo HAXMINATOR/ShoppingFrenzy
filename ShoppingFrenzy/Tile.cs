@@ -10,7 +10,7 @@ namespace ShoppingFrenzy
 {
     public class Tile
     {
-        protected Texture2D sprite;
+        private Texture2D sprite;
         protected float rotation;
         private Vector2 position;
         protected ContentManager content;
@@ -27,6 +27,7 @@ namespace ShoppingFrenzy
         public static string[] BuyAbles { get => buyAbles; }
         public string TileType { get => tileType; set => tileType = value; }
         public int HValue { get => hValue; set => hValue = value; }
+        public Texture2D Sprite { get => sprite; set => sprite = value; }
 
         public Tile()
         {
@@ -43,64 +44,64 @@ namespace ShoppingFrenzy
             switch (tileType)
             {
                 case "Floor":
-                    sprite = content.Load<Texture2D>("Floor");
+                    Sprite = content.Load<Texture2D>("Floor");
                     Walkable = true;
                     break;
                 case "Display":
-                    sprite = content.Load<Texture2D>("Display");
+                    Sprite = content.Load<Texture2D>("Display");
                     Walkable = false;
                     break;
                 case "DisplayAxe":
-                    sprite = content.Load<Texture2D>("DisplayAxe");
+                    Sprite = content.Load<Texture2D>("DisplayAxe");
                     Walkable = false;
                     break;
                 case "DisplayClaw":
-                    sprite = content.Load<Texture2D>("DisplayClaw");
+                    Sprite = content.Load<Texture2D>("DisplayClaw");
                     Walkable = false;
                     break;
                 case "DisplayDagger":
-                    sprite = content.Load<Texture2D>("DisplayDagger");
+                    Sprite = content.Load<Texture2D>("DisplayDagger");
                     Walkable = false;
                     break;
                 case "DisplayMace":
-                    sprite = content.Load<Texture2D>("DisplayMace");
+                    Sprite = content.Load<Texture2D>("DisplayMace");
                     Walkable = false;
                     break;
                 case "DisplayShuriken":
-                    sprite = content.Load<Texture2D>("DisplayShuriken");
+                    Sprite = content.Load<Texture2D>("DisplayShuriken");
                     Walkable = false;
                     break;
                 case "DisplayStaff":
-                    sprite = content.Load<Texture2D>("DisplayStaff");
+                    Sprite = content.Load<Texture2D>("DisplayStaff");
                     Walkable = false;
                     break;
                 case "BuyAxe":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
                 case "BuyClaw":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
                 case "BuyDagger":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
                 case "BuyMace":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
                 case "BuyShuriken":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
                 case "BuyStaff":
-                    sprite = content.Load<Texture2D>("FloorWhite");
+                    Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
                     buyItem = "Axe";
                     break;
@@ -109,7 +110,7 @@ namespace ShoppingFrenzy
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, new SpriteEffects(), 0f);
+            spriteBatch.Draw(Sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, new SpriteEffects(), 0f);
         }
 
         public static void GenerateHValue(int targetTileX, int targetTileY, Shopper targetShopper)

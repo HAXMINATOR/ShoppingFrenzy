@@ -48,6 +48,11 @@ namespace ShoppingFrenzy
         public int TileXPosition { get => tileXPosition; set => tileXPosition = value; }
         public int TileYPosition { get => tileYPosition; set => tileYPosition = value; }
 
+        /// <summary>
+        /// doesn't work
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void BreadthFirstSearch(Node start, Node end)
         {
             Edge[] edgeQueue = new Edge[0];
@@ -67,9 +72,17 @@ namespace ShoppingFrenzy
                 for (int i = 0; i < edge.Child.Edges.Length; i++)
                 {
                     Edge wedge = edge.Child.Edges[i];
-                    if (!wedge.Child.Discovered && wedge != null)
+                    if (wedge != null && !wedge.Child.Discovered)
                     {
-                        GameWorld.Enqueue(ref edgeQueue, ref wedge.Child.Edges[i]);
+                        for (int j = 0; j < wedge.Child.Edges.Length; j++)
+                        {
+                            if (wedge.Child.Edges[j] != null && !wedge.Child.Edges[j].Child.Discovered)
+                            {
+                                GameWorld.Enqueue(ref edgeQueue, ref wedge.Child.Edges[j]);
+                            }
+                        }
+
+                        wedge.Parent.Discovered = true;
                         wedge.Child.Discovered = true;
                         wedge.Parent = edge.Child;
                     }
