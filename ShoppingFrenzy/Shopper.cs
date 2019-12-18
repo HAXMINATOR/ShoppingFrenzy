@@ -47,6 +47,7 @@ namespace ShoppingFrenzy
         public Tile[,] ShopperMap { get => shopperMap; set => shopperMap = value; }
         public int TileXPosition { get => tileXPosition; set => tileXPosition = value; }
         public int TileYPosition { get => tileYPosition; set => tileYPosition = value; }
+        public Node CurrentNode { get => currentNode; set => currentNode = value; }
 
         /// <summary>
         /// doesn't work
