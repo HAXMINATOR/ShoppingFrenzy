@@ -15,6 +15,11 @@ namespace ShoppingFrenzy
         public Vector2 position;
         public Color color = Color.White;
 
+        public GameObject()
+        {
+
+        }
+
         public GameObject(string spriteName, ContentManager content)
         {
             sprite = content.Load<Texture2D>(spriteName);
