@@ -15,10 +15,6 @@ namespace ShoppingFrenzy
         Shopper[] shoppers = new Shopper[3];
         private static Tile[,] mapArray = new Tile[10, 10];
         SpriteFont font;
-
-        
-
-        private Tile[,] mapArray = new Tile[10, 10];
         Node[,] nodeArray = new Node[10, 10];
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
