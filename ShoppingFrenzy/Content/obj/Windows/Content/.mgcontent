@@ -4,18 +4,20 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/Display.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayAxe.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayClaw.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayDagger.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayMace.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayShuriken.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayStaff.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/Floor.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/FloorWhite.png</File>
-    <File>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/smallGuy.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/Display.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayAxe.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayClaw.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayDagger.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayMace.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayShuriken.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/DisplayStaff.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/Floor.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/FloorWhite.png</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/SmallFont.spritefont</File>
+    <File>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/smallGuy.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

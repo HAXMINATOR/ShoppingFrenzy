@@ -19,12 +19,14 @@ namespace ShoppingFrenzy
         private Node node;
         private string tileType;
         private static readonly string[] buyAbles = new string[] { "BuyAxe", "BuyClaw", "BuyDagger", "BuyMace", "BuyShuriken", "BuyStaff" };
+        private int hValue = 0;
 
         public Vector2 Position { get => position; }
         public Node Node { get => node; set => node = value; }
         public bool Walkable { get => walkable; set => walkable = value; }
         public static string[] BuyAbles { get => buyAbles; }
         public string TileType { get => tileType; set => tileType = value; }
+        public int HValue { get => hValue; set => hValue = value; }
 
         public Tile()
         {
@@ -109,5 +111,22 @@ namespace ShoppingFrenzy
         {
             spriteBatch.Draw(sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, new SpriteEffects(), 0f);
         }
+
+        public static void GenerateHValue(int targetTileX, int targetTileY, Shopper targetShopper)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    int temp1 = Math.Abs((i - targetTileX));
+                    int temp2 = Math.Abs((k - targetTileY));
+
+                    targetShopper.ShopperMap[i,k].HValue = (temp1 + temp2)*10;
+                }
+            }
+               
+            }
+           
+        }
     }
-}
+

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -12,10 +13,13 @@ namespace ShoppingFrenzy
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Shopper[] shoppers = new Shopper[3];
-        private Tile[,] mapArray = new Tile[10, 10];
+        private static Tile[,] mapArray = new Tile[10, 10];
+        SpriteFont font;
+
         
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
+        public static Tile[,] MapArray { get => mapArray; set => mapArray = value; }
 
         public GameWorld()
         {
@@ -52,6 +56,8 @@ namespace ShoppingFrenzy
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("SmallFont");
+            
         }
 
         /// <summary>
@@ -91,9 +97,10 @@ namespace ShoppingFrenzy
 
             spriteBatch.Begin();
 
-            foreach (Tile tiles in mapArray)
+            foreach (Tile tiles in MapArray)
             {
                 tiles.Draw(spriteBatch);
+                spriteBatch.DrawString(font, $"{tiles.HValue}", new Vector2(tiles.Position.X + 70, tiles.Position.Y + 5), Color.Black);
             }
 
             foreach (Shopper shopper in Shoppers)
@@ -113,31 +120,31 @@ namespace ShoppingFrenzy
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    mapArray[i, j] = new Tile(new Vector2(460 + i * 100, 5 + j * 100), Content, "Floor");
+                    MapArray[i, j] = new Tile(new Vector2(460 + i * 100, 5 + j * 100), Content, "Floor");
                 }
             }
 
             //Empty Displays
-            mapArray[0, 2] = new Tile(mapArray[0, 2].Position, Content, "Display");
-            mapArray[0, 4] = new Tile(mapArray[0, 4].Position, Content, "Display");
-            mapArray[0, 8] = new Tile(mapArray[0, 8].Position, Content, "Display");
-            mapArray[0, 9] = new Tile(mapArray[0, 9].Position, Content, "Display");
-            mapArray[2, 3] = new Tile(mapArray[2, 3].Position, Content, "Display");
-            mapArray[2, 4] = new Tile(mapArray[2, 4].Position, Content, "Display");
-            mapArray[2, 5] = new Tile(mapArray[2, 5].Position, Content, "Display");
-            mapArray[2, 6] = new Tile(mapArray[2, 6].Position, Content, "Display");
-            mapArray[3, 4] = new Tile(mapArray[3, 4].Position, Content, "Display");
-            mapArray[3, 6] = new Tile(mapArray[3, 6].Position, Content, "Display");
-            mapArray[6, 3] = new Tile(mapArray[6, 3].Position, Content, "Display");
-            mapArray[6, 4] = new Tile(mapArray[6, 4].Position, Content, "Display");
-            mapArray[6, 5] = new Tile(mapArray[6, 5].Position, Content, "Display");
-            mapArray[6, 6] = new Tile(mapArray[6, 6].Position, Content, "Display");
-            mapArray[7, 3] = new Tile(mapArray[7, 3].Position, Content, "Display");
-            mapArray[7, 5] = new Tile(mapArray[7, 5].Position, Content, "Display");
-            mapArray[9, 8] = new Tile(mapArray[9, 8].Position, Content, "Display");
-            mapArray[8, 8] = new Tile(mapArray[8, 8].Position, Content, "Display");
-            mapArray[7, 8] = new Tile(mapArray[7, 8].Position, Content, "Display");
-            mapArray[7, 9] = new Tile(mapArray[7, 9].Position, Content, "Display");
+            MapArray[0, 2] = new Tile(MapArray[0, 2].Position, Content, "Display");
+            MapArray[0, 4] = new Tile(MapArray[0, 4].Position, Content, "Display");
+            MapArray[0, 8] = new Tile(MapArray[0, 8].Position, Content, "Display");
+            MapArray[0, 9] = new Tile(MapArray[0, 9].Position, Content, "Display");
+            MapArray[2, 3] = new Tile(MapArray[2, 3].Position, Content, "Display");
+            MapArray[2, 4] = new Tile(MapArray[2, 4].Position, Content, "Display");
+            MapArray[2, 5] = new Tile(MapArray[2, 5].Position, Content, "Display");
+            MapArray[2, 6] = new Tile(MapArray[2, 6].Position, Content, "Display");
+            MapArray[3, 4] = new Tile(MapArray[3, 4].Position, Content, "Display");
+            MapArray[3, 6] = new Tile(MapArray[3, 6].Position, Content, "Display");
+            MapArray[6, 3] = new Tile(MapArray[6, 3].Position, Content, "Display");
+            MapArray[6, 4] = new Tile(MapArray[6, 4].Position, Content, "Display");
+            MapArray[6, 5] = new Tile(MapArray[6, 5].Position, Content, "Display");
+            MapArray[6, 6] = new Tile(MapArray[6, 6].Position, Content, "Display");
+            MapArray[7, 3] = new Tile(MapArray[7, 3].Position, Content, "Display");
+            MapArray[7, 5] = new Tile(MapArray[7, 5].Position, Content, "Display");
+            MapArray[9, 8] = new Tile(MapArray[9, 8].Position, Content, "Display");
+            MapArray[8, 8] = new Tile(MapArray[8, 8].Position, Content, "Display");
+            MapArray[7, 8] = new Tile(MapArray[7, 8].Position, Content, "Display");
+            MapArray[7, 9] = new Tile(MapArray[7, 9].Position, Content, "Display");
 
             //Empty displays, hard coded
             //mapArray[0, 2] = new Tile(new Vector2(460 + 0 * 100, 5 + 2 * 100), Content, "Display");
@@ -162,12 +169,12 @@ namespace ShoppingFrenzy
             //mapArray[7, 9] = new Tile(new Vector2(460 + 7 * 100, 5 + 9 * 100), Content, "Display");
 
             //Item Displays
-            mapArray[0, 3] = new Tile(mapArray[0, 3].Position, Content, "DisplayAxe");
-            mapArray[0, 7] = new Tile(mapArray[0, 7].Position, Content, "DisplayShuriken");
-            mapArray[3, 3] = new Tile(mapArray[3, 3].Position, Content, "DisplayStaff");
-            mapArray[3, 5] = new Tile(mapArray[3, 5].Position, Content, "DisplayDagger");
-            mapArray[7, 4] = new Tile(mapArray[7, 4].Position, Content, "DisplayClaw");
-            mapArray[7, 6] = new Tile(mapArray[7, 6].Position, Content, "DisplayMace");
+            MapArray[0, 3] = new Tile(MapArray[0, 3].Position, Content, "DisplayAxe");
+            MapArray[0, 7] = new Tile(MapArray[0, 7].Position, Content, "DisplayShuriken");
+            MapArray[3, 3] = new Tile(MapArray[3, 3].Position, Content, "DisplayStaff");
+            MapArray[3, 5] = new Tile(MapArray[3, 5].Position, Content, "DisplayDagger");
+            MapArray[7, 4] = new Tile(MapArray[7, 4].Position, Content, "DisplayClaw");
+            MapArray[7, 6] = new Tile(MapArray[7, 6].Position, Content, "DisplayMace");
 
             //Item displays, hard coded
             //mapArray[0, 3] = new Tile(new Vector2(460 + 0 * 100, 5 + 3 * 100), Content, "DisplayAxe");
@@ -178,12 +185,12 @@ namespace ShoppingFrenzy
             //mapArray[7, 6] = new Tile(new Vector2(460 + 7 * 100, 5 + 6 * 100), Content, "DisplayMace");
 
             //Interactable
-            mapArray[1, 3] = new Tile(mapArray[1, 3].Position, Content, "BuyAxe");
-            mapArray[1, 7] = new Tile(mapArray[1, 7].Position, Content, "BuyShuriken");
-            mapArray[4, 3] = new Tile(mapArray[4, 3].Position, Content, "BuyStaff");
-            mapArray[4, 5] = new Tile(mapArray[4, 5].Position, Content, "BuyDagger");
-            mapArray[8, 4] = new Tile(mapArray[8, 4].Position, Content, "BuyClaw");
-            mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
+            MapArray[1, 3] = new Tile(MapArray[1, 3].Position, Content, "BuyAxe");
+            MapArray[1, 7] = new Tile(MapArray[1, 7].Position, Content, "BuyShuriken");
+            MapArray[4, 3] = new Tile(MapArray[4, 3].Position, Content, "BuyStaff");
+            MapArray[4, 5] = new Tile(MapArray[4, 5].Position, Content, "BuyDagger");
+            MapArray[8, 4] = new Tile(MapArray[8, 4].Position, Content, "BuyClaw");
+            MapArray[8, 6] = new Tile(MapArray[8, 6].Position, Content, "BuyMace");
 
             //Interactable, hard coded
             //mapArray[1, 3] = new Tile(new Vector2(460 + 1 * 100, 5 + 3 * 100), Content, "BuyAxe");
@@ -200,8 +207,8 @@ namespace ShoppingFrenzy
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    mapArray[i, j].Node = new Node();
-                    mapArray[i, j].Node.Index = index;
+                    MapArray[i, j].Node = new Node();
+                    MapArray[i, j].Node.Index = index;
                     index++;
                 }
             }
@@ -213,31 +220,32 @@ namespace ShoppingFrenzy
                 {
                     if (j != 0) //Checks limit values
                     {
-                        if (mapArray[i, j - 1].Walkable)
+                        if (MapArray[i, j - 1].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[0] = new Edge(mapArray[i, j].Node, mapArray[i, j - 1].Node);
+                            MapArray[i, j].Node.Edges[0] = new Edge(MapArray[i, j].Node, MapArray[i, j - 1].Node);
                         }
                     }
                     if (i != 0) //Checks limit values
                     {
-                        if (mapArray[i - 1, j].Walkable)
+                        if (MapArray[i - 1, j].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[1] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j].Node);
+                            MapArray[i, j].Node.Edges[1] = new Edge(MapArray[i, j].Node, MapArray[i - 1, j].Node);
                         }
                     }
                     if (j != 9) //Checks limit values
                     {
-                        if (mapArray[i, j + 1].Walkable)
+                        if (MapArray[i, j + 1].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[2] = new Edge(mapArray[i, j].Node, mapArray[i, j + 1].Node);
+                            MapArray[i, j].Node.Edges[2] = new Edge(MapArray[i, j].Node, MapArray[i, j + 1].Node);
                         }
                     }
                     if (i != 9) //Checks limit values
                     {
-                        if (mapArray[i + 1, j].Walkable)
+                        if (MapArray[i + 1, j].Walkable)
                         {
-                            mapArray[i, j].Node.Edges[3] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j].Node);
+                            MapArray[i, j].Node.Edges[3] = new Edge(MapArray[i, j].Node, MapArray[i + 1, j].Node);
                         }
+                        
                     }
                 }
             }
@@ -275,6 +283,71 @@ namespace ShoppingFrenzy
             tmp.CopyTo(array, 0);
 
             return returnItem;
+        }
+
+        public void CalculatePath(int targetTileX, int targetTileY)
+        {
+            foreach (Shopper customer in shoppers)
+            {
+                int currentGValue = 10;
+                int tempTileX = customer.TileXPosition;
+                int tempTileY = customer.TileYPosition;
+                int tempFvalue1;
+                int tempFvalue2;
+                int tempFvalue3;
+                int tempFvalue4;
+                bool pathing = true;
+                if ((customer.TileXPosition == targetTileX - 1 || customer.TileXPosition == targetTileX + 1) && (customer.TileYPosition == targetTileY - 1 || customer.TileYPosition == targetTileY + 1))
+                {
+                    //Go to tile and grab item
+                }
+
+                while (pathing == true)
+                {
+                    if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
+                    {
+                        tempFvalue1 = customer.ShopperMap[customer.TileXPosition + 1, customer.TileYPosition].HValue + currentGValue;
+                    }
+
+                    else
+                    {
+                        tempFvalue1 = 9999;
+                    }
+
+                    if (customer.ShopperMap[tempTileX - 1, tempTileY].Walkable == true && tempTileX - 1 >= 0)
+                    {
+                        tempFvalue2 = customer.ShopperMap[customer.TileXPosition - 1, customer.TileYPosition].HValue + currentGValue;
+                    }
+
+                    else
+                    {
+                        tempFvalue2 = 9999;
+                    }
+
+                    if (customer.ShopperMap[tempTileX, tempTileY + 1].Walkable == true && tempTileY + 1 <= 9)
+                    {
+                        tempFvalue3 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition + 1].HValue + currentGValue;
+                    }
+
+                    else
+                    {
+                        tempFvalue3 = 9999;
+                    }
+
+                    if (customer.ShopperMap[tempTileX, tempTileY - 1].Walkable == true && tempTileY - 1 >= 0)
+                    {
+                        tempFvalue4 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition - 1].HValue + currentGValue;
+                    }
+
+                    else
+                    {
+                        tempFvalue4 = 9999;
+                    }
+
+                    MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
+
+                }
+            }
         }
     }
 }

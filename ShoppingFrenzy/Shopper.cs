@@ -10,8 +10,14 @@ namespace ShoppingFrenzy
     public class Shopper : GameObject
     {
         private string[] shoppingList = new string[3];
-        private string[] bought = new string[3];
+        private string[] bought = new string[0];
+        private int[,] pathfinding;
         private Node currentNode;
+        private Tile[,] shopperMap = new Tile[10,10];
+        private Tile[,] closedList;
+        private Tile[,] openList;
+        private int tileXPosition = 4;
+        private int tileYPosition = 9;
 
         public Shopper()
         {
@@ -25,7 +31,22 @@ namespace ShoppingFrenzy
             {
                 shoppingList[i] = Tile.BuyAbles[rng.Next(0, Tile.BuyAbles.Length - 1)];
             }
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    ShopperMap[i, k] = GameWorld.MapArray[i, k];
+                }
+            }
         }
+
+        public int[,] Pathfinding { get => pathfinding; set => pathfinding = value; }
+        public Tile[,] ClosedList { get => closedList; set => closedList = value; }
+        public Tile[,] OpenList { get => openList; set => openList = value; }
+        public Tile[,] ShopperMap { get => shopperMap; set => shopperMap = value; }
+        public int TileXPosition { get => tileXPosition; set => tileXPosition = value; }
+        public int TileYPosition { get => tileYPosition; set => tileYPosition = value; }
 
         public void BreadthFirstSearch(Node start, Node end)
         {

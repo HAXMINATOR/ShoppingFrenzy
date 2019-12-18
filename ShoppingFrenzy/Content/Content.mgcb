@@ -121,6 +121,13 @@
 /processorParam:TextureFormat=Color
 /build:FloorWhite.png
 
+#begin SmallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:SmallFont.spritefont
+
 #begin smallGuy.png
 /importer:TextureImporter
 /processor:TextureProcessor
