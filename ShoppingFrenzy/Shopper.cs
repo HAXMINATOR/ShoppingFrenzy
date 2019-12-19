@@ -108,7 +108,7 @@ namespace ShoppingFrenzy
             }
             else if (path.Length <= 0)
             {
-                CalculatePath(GameWorld.MapArray[1, 3]);
+                CalculatePath(1, 3);
             }
         }
 
@@ -126,7 +126,7 @@ namespace ShoppingFrenzy
             }
         }
 
-        public void CalculatePath(Tile targetTile)
+        public void CalculatePath(int targetTileX, int targetTileY)
         {
             int currentGValue = 10;
             int tempTileX = TileXPosition;
@@ -155,6 +155,12 @@ namespace ShoppingFrenzy
 
             while (pathing == true)
             {
+                //Step 1: If within 1 tile of goal, enter goal
+                if (((TileXPosition == targetTileX - 1 || TileXPosition == targetTileX + 1) && TileYPosition == targetTileY) || ((TileYPosition == targetTileY + 1 || TileYPosition == targetTileY - 1) && TileXPosition == targetTileX))
+                {
+                    //Go to tile and grab item
+                }
+
                 for (int i = 0; i < newPath[newPath.Length - 1].Node.Edges.Length; i++) //Goes through all the edges of the the last node in the path array
                 {
                     if (newPath[newPath.Length - 1].Node.Edges[i] != null && newPath[newPath.Length - 1].Node.Edges[i].Child.Tile.HValue < smallestHTile.HValue) //Makes sure the current edge isn't null. Compares HValues of the current edge's child's tile and the currently lowest HValue tile found
@@ -164,54 +170,8 @@ namespace ShoppingFrenzy
                 }
 
                 GameWorld.Enqueue(ref newPath, ref smallestHTile); //Adds the found tile with the smallest HValues to the path array
-
-                //if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
-                //{
-                //    tempFvalue1 = customer.ShopperMap[customer.TileXPosition + 1, customer.TileYPosition].HValue + currentGValue;
-                //}
-
-                //else
-                //{
-                //    tempFvalue1 = 9999;
-                //}
-
-                //if (customer.ShopperMap[tempTileX - 1, tempTileY].Walkable == true && tempTileX - 1 >= 0)
-                //{
-                //    tempFvalue2 = customer.ShopperMap[customer.TileXPosition - 1, customer.TileYPosition].HValue + currentGValue;
-                //}
-
-                //else
-                //{
-                //    tempFvalue2 = 9999;
-                //}
-
-                //if (customer.ShopperMap[tempTileX, tempTileY + 1].Walkable == true && tempTileY + 1 <= 9)
-                //{
-                //    tempFvalue3 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition + 1].HValue + currentGValue;
-                //}
-
-                //else
-                //{
-                //    tempFvalue3 = 9999;
-                //}
-
-                //if (customer.ShopperMap[tempTileX, tempTileY - 1].Walkable == true && tempTileY - 1 >= 0)
-                //{
-                //    tempFvalue4 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition - 1].HValue + currentGValue;
-                //}
-
-                //else
-                //{
-                //    tempFvalue4 = 9999;
-                //}
-
-                //MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
-
-                if (smallestHTile == targetTile) //If the smallest found tile is the target tile
-                {
-                    pathing = false;
-                    Path = newPath;
-                }
+                
+                
             }
         }
     }
