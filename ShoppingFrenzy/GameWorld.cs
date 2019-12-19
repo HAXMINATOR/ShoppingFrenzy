@@ -38,12 +38,13 @@ namespace ShoppingFrenzy
         /// </summary>
         protected override void Initialize()
         {
+            GenerateMap();
+
             for (int i = 0; i < 3; i++)
             {
                 Shoppers[i] = new Shopper("smallGuy", Content);
             }
             
-            GenerateMap();
 
             base.Initialize();
         }
@@ -286,96 +287,7 @@ namespace ShoppingFrenzy
             return returnItem;
         }
 
-        public void CalculatePath(int targetTileX, int targetTileY)
-        {
-            foreach (Shopper customer in shoppers)
-            {
-                int currentGValue = 10;
-                int tempTileX = customer.TileXPosition;
-                int tempTileY = customer.TileYPosition;
-                int tempFvalue1;
-                int tempFvalue2;
-                int tempFvalue3;
-                int tempFvalue4;
-                bool pathing = true;
-                if ((customer.TileXPosition == targetTileX - 1 || customer.TileXPosition == targetTileX + 1) && (customer.TileYPosition == targetTileY - 1 || customer.TileYPosition == targetTileY + 1))
-                {
-                    //Go to tile and grab item
-                }
-
-                Tile[] path = new Tile[0]; //Path array
-                Tile workaroundTile = customer.CurrentNode.Tile;
-                Enqueue(ref path, ref workaroundTile); //Adds the customers current node to the path array
-                Tile smallestHTile = customer.CurrentNode.Edges[0].Child.Tile;
-                for (int i = 0; i < customer.CurrentNode.Edges.Length; i++)
-                {
-                    if (customer.CurrentNode.Edges[i] != null)
-                    {
-                        smallestHTile = customer.CurrentNode.Edges[i].Child.Tile; //Takes the first non-null tile and adds it to smallestHTile for later comparison
-                    }
-                }
-                
-                while (pathing == true)
-                {
-                    for (int i = 0; i < path[path.Length - 1].Node.Edges.Length; i++) //Goes through all the edges of the the last node in the path array
-                    {
-                        if (path[path.Length - 1].Node.Edges[i] != null && path[path.Length - 1].Node.Edges[i].Child.Tile.HValue < smallestHTile.HValue) //Makes sure the current edge isn't null. Compares HValues of the current edge's child's tile and the currently lowest HValue tile found
-                        {
-                            smallestHTile = customer.CurrentNode.Edges[i].Child.Tile; //Assigns the lower tile to the smallestHTile reference
-                        }
-                    }
-
-                    Enqueue(ref path, ref smallestHTile); //Adds the found tile with the smallest HValues to the path array
-
-                    //if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
-                    //{
-                    //    tempFvalue1 = customer.ShopperMap[customer.TileXPosition + 1, customer.TileYPosition].HValue + currentGValue;
-                    //}
-
-                    //else
-                    //{
-                    //    tempFvalue1 = 9999;
-                    //}
-
-                    //if (customer.ShopperMap[tempTileX - 1, tempTileY].Walkable == true && tempTileX - 1 >= 0)
-                    //{
-                    //    tempFvalue2 = customer.ShopperMap[customer.TileXPosition - 1, customer.TileYPosition].HValue + currentGValue;
-                    //}
-
-                    //else
-                    //{
-                    //    tempFvalue2 = 9999;
-                    //}
-
-                    //if (customer.ShopperMap[tempTileX, tempTileY + 1].Walkable == true && tempTileY + 1 <= 9)
-                    //{
-                    //    tempFvalue3 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition + 1].HValue + currentGValue;
-                    //}
-
-                    //else
-                    //{
-                    //    tempFvalue3 = 9999;
-                    //}
-
-                    //if (customer.ShopperMap[tempTileX, tempTileY - 1].Walkable == true && tempTileY - 1 >= 0)
-                    //{
-                    //    tempFvalue4 = customer.ShopperMap[customer.TileYPosition, customer.TileYPosition - 1].HValue + currentGValue;
-                    //}
-
-                    //else
-                    //{
-                    //    tempFvalue4 = 9999;
-                    //}
-
-                    //MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
-
-                    if (smallestHTile == MapArray[targetTileX, targetTileY]) //If the smallest found tile is the target tile
-                    {
-                        pathing = false;
-                    }
-                }
-            }
-        }
+        
     }
 }
 

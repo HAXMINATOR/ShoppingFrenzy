@@ -126,8 +126,8 @@ namespace ShoppingFrenzy
                 }
             }
                
-            }
-           
         }
+           
     }
+}
 

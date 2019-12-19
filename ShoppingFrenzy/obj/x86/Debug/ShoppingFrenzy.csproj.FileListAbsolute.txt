@@ -65,3 +65,4 @@ C:\Users\mikke\Source\Repos\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\Shopping
 C:\Users\mikke\Source\Repos\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.exe
 C:\Users\mikke\Source\Repos\ShoppingFrenzy\ShoppingFrenzy\obj\x86\Debug\ShoppingFrenzy.pdb
 C:\Users\mikke\Source\Repos\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\SmallFont.xnb
+C:\Users\Thor\source\repos\HAXMINATOR\ShoppingFrenzy\ShoppingFrenzy\bin\Windows\x86\Debug\Content\SmallFont.xnb

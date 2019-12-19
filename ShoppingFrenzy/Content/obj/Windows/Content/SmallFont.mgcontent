@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/SmallFont.spritefont</SourceFile>
-  <SourceTime>2019-12-18T10:36:30.3384461+01:00</SourceTime>
-  <DestFile>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/bin/Windows/Content/SmallFont.xnb</DestFile>
-  <DestTime>2019-12-18T10:36:34.8788294+01:00</DestTime>
+  <SourceFile>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/SmallFont.spritefont</SourceFile>
+  <SourceTime>2019-12-18T12:58:08.4011662+01:00</SourceTime>
+  <DestFile>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/bin/Windows/Content/SmallFont.xnb</DestFile>
+  <DestTime>2019-12-18T13:54:33.9889265+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
