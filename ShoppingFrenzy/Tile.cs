@@ -105,6 +105,11 @@ namespace ShoppingFrenzy
                     Walkable = true;
                     buyItem = "Axe";
                     break;
+                case "ShopPay":
+                    Sprite = content.Load<Texture2D>("FloorWhite");
+                    Walkable = true;
+                    buyItem = "Pay";
+                    break;
             }
         }
 
