@@ -305,22 +305,29 @@ namespace ShoppingFrenzy
                     //Go to tile and grab item
                 }
 
-                Tile[] path = new Tile[0];
-
-
+                Tile[] path = new Tile[0]; //Path array
+                Tile workaroundTile = customer.CurrentNode.Tile;
+                Enqueue(ref path, ref workaroundTile); //Adds the customers current node to the path array
+                Tile smallestHTile = customer.CurrentNode.Edges[0].Child.Tile;
+                for (int i = 0; i < customer.CurrentNode.Edges.Length; i++)
+                {
+                    if (customer.CurrentNode.Edges[i] != null)
+                    {
+                        smallestHTile = customer.CurrentNode.Edges[i].Child.Tile; //Takes the first non-null tile and adds it to smallestHTile for later comparison
+                    }
+                }
+                
                 while (pathing == true)
                 {
-                    Tile smallestHTile = customer.CurrentNode.Edges[0].Child.Tile;
-
-                    for (int i = 0; i < customer.CurrentNode.Edges.Length; i++)
+                    for (int i = 0; i < path[path.Length - 1].Node.Edges.Length; i++) //Goes through all the edges of the the last node in the path array
                     {
-                        if (customer.CurrentNode.Edges[i] != null && customer.CurrentNode.Edges[i].Child.Tile.HValue < smallestHTile.HValue)
+                        if (path[path.Length - 1].Node.Edges[i] != null && path[path.Length - 1].Node.Edges[i].Child.Tile.HValue < smallestHTile.HValue) //Makes sure the current edge isn't null. Compares HValues of the current edge's child's tile and the currently lowest HValue tile found
                         {
-                            smallestHTile = customer.CurrentNode.Edges[i].Child.Tile;
+                            smallestHTile = customer.CurrentNode.Edges[i].Child.Tile; //Assigns the lower tile to the smallestHTile reference
                         }
                     }
 
-                    Enqueue(ref path, ref smallestHTile);
+                    Enqueue(ref path, ref smallestHTile); //Adds the found tile with the smallest HValues to the path array
 
                     //if (customer.ShopperMap[tempTileX + 1, tempTileY].Walkable == true && tempTileX + 1 <= 9)
                     //{
@@ -364,7 +371,7 @@ namespace ShoppingFrenzy
 
                     //MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
 
-                    if (smallestHTile == MapArray[targetTileX, targetTileY]) 
+                    if (smallestHTile == MapArray[targetTileX, targetTileY]) //If the smallest found tile is the target tile
                     {
                         pathing = false;
                     }
