@@ -222,34 +222,34 @@ namespace ShoppingFrenzy
                     }
                     #endregion
                     #region Diagonal
-                    if (i != 0 && j != 0) //Checks limit values
-                    {
-                        if (mapArray[i - 1, j - 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[4] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j - 1].Node);
-                        }
-                    }
-                    if (i != 9 && j != 0) //Checks limit values
-                    {
-                        if (mapArray[i + 1, j - 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[5] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j - 1].Node);
-                        }
-                    }
-                    if (i != 0 && j != 9) //Checks limit values
-                    {
-                        if (mapArray[i - 1, j + 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[6] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j + 1].Node);
-                        }
-                    }
-                    if (i != 9 && j != 9) //Checks limit values
-                    {
-                        if (mapArray[i + 1, j + 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[7] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j + 1].Node);
-                        }
-                    }
+                    //if (i != 0 && j != 0) //Checks limit values
+                    //{
+                    //    if (mapArray[i - 1, j - 1].Walkable)
+                    //    {
+                    //        mapArray[i, j].Node.Edges[4] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j - 1].Node);
+                    //    }
+                    //}
+                    //if (i != 9 && j != 0) //Checks limit values
+                    //{
+                    //    if (mapArray[i + 1, j - 1].Walkable)
+                    //    {
+                    //        mapArray[i, j].Node.Edges[5] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j - 1].Node);
+                    //    }
+                    //}
+                    //if (i != 0 && j != 9) //Checks limit values
+                    //{
+                    //    if (mapArray[i - 1, j + 1].Walkable)
+                    //    {
+                    //        mapArray[i, j].Node.Edges[6] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j + 1].Node);
+                    //    }
+                    //}
+                    //if (i != 9 && j != 9) //Checks limit values
+                    //{
+                    //    if (mapArray[i + 1, j + 1].Walkable)
+                    //    {
+                    //        mapArray[i, j].Node.Edges[7] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j + 1].Node);
+                    //    }
+                    //}
                     #endregion
                 }
             }

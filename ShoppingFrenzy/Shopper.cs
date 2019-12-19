@@ -136,10 +136,6 @@ namespace ShoppingFrenzy
             int tempFvalue3;
             int tempFvalue4;
             bool pathing = true;
-            //if ((TileXPosition == targetTileX - 1 || TileXPosition == targetTileX + 1) && (TileYPosition == targetTileY - 1 || TileYPosition == targetTileY + 1))
-            //{
-            //    //Go to tile and grab item
-            //}
 
             Tile[] newPath = new Tile[0]; //Path array
             Tile workaroundTile = CurrentNode.Tile;
@@ -170,8 +166,6 @@ namespace ShoppingFrenzy
                 }
 
                 GameWorld.Enqueue(ref newPath, ref smallestHTile); //Adds the found tile with the smallest HValues to the path array
-                
-                
             }
         }
     }
