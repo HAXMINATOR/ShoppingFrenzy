@@ -8,7 +8,7 @@ namespace ShoppingFrenzy
 {
     public class Node
     {
-        Edge[] edges = new Edge[8];
+        Edge[] edges = new Edge[4];
         bool discovered;
         int index;
         Vector2 position;

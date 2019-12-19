@@ -12,10 +12,11 @@ namespace ShoppingFrenzy
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Shopper[] shoppers = new Shopper[3];
+        Shopper[] shoppers = new Shopper[1];
         private static Tile[,] mapArray = new Tile[10, 10];
         SpriteFont font;
         Node[,] nodeArray = new Node[10, 10];
+        public static Tile[] buyingSpots = new Tile[0];
 
         public Shopper[] Shoppers { get => shoppers; set => shoppers = value; }
         public static Tile[,] MapArray { get => mapArray; set => mapArray = value; }
@@ -39,13 +40,7 @@ namespace ShoppingFrenzy
         protected override void Initialize()
         {
             GenerateMap();
-
-            for (int i = 0; i < 3; i++)
-            {
-                Shoppers[i] = new Shopper("smallGuy", Content);
-            }
-            
-
+            Shoppers[0] = new Shopper("smallGuy", Content);
             base.Initialize();
         }
 
@@ -101,7 +96,7 @@ namespace ShoppingFrenzy
             foreach (Tile tiles in MapArray)
             {
                 tiles.Draw(spriteBatch);
-                spriteBatch.DrawString(font, $"{tiles.HValue}", new Vector2(tiles.Position.X + 70, tiles.Position.Y + 5), Color.Black);
+                spriteBatch.DrawString(font, $"H:{tiles.HValue}", new Vector2(tiles.Position.X + 20, tiles.Position.Y + 5), Color.Black);
             }
 
             foreach (Shopper shopper in Shoppers)
@@ -129,6 +124,8 @@ namespace ShoppingFrenzy
             //Empty Displays
             mapArray[0, 2] = new Tile(mapArray[0, 2].Position, Content, "Display");
             mapArray[0, 4] = new Tile(mapArray[0, 4].Position, Content, "Display");
+            mapArray[0, 5] = new Tile(mapArray[0, 5].Position, Content, "Display");
+            mapArray[0, 6] = new Tile(mapArray[0, 6].Position, Content, "Display");
             mapArray[0, 8] = new Tile(mapArray[0, 8].Position, Content, "Display");
             mapArray[0, 9] = new Tile(mapArray[0, 9].Position, Content, "Display");
             mapArray[2, 3] = new Tile(mapArray[2, 3].Position, Content, "Display");
@@ -147,7 +144,7 @@ namespace ShoppingFrenzy
             mapArray[8, 8] = new Tile(mapArray[8, 8].Position, Content, "Display");
             mapArray[7, 8] = new Tile(mapArray[7, 8].Position, Content, "Display");
             mapArray[7, 9] = new Tile(mapArray[7, 9].Position, Content, "Display");
-            
+
             //Item Displays
             mapArray[0, 3] = new Tile(mapArray[0, 3].Position, Content, "DisplayAxe");
             mapArray[0, 7] = new Tile(mapArray[0, 7].Position, Content, "DisplayShuriken");
@@ -155,7 +152,7 @@ namespace ShoppingFrenzy
             mapArray[3, 5] = new Tile(mapArray[3, 5].Position, Content, "DisplayDagger");
             mapArray[7, 4] = new Tile(mapArray[7, 4].Position, Content, "DisplayClaw");
             mapArray[7, 6] = new Tile(mapArray[7, 6].Position, Content, "DisplayMace");
-            
+
             //Interactable
             mapArray[1, 3] = new Tile(mapArray[1, 3].Position, Content, "BuyAxe");
             mapArray[1, 7] = new Tile(mapArray[1, 7].Position, Content, "BuyShuriken");
@@ -165,6 +162,15 @@ namespace ShoppingFrenzy
             mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
             mapArray[9, 7] = new Tile(mapArray[9, 7].Position, Content, "ShopPay");
             #endregion
+
+            //Add to buyingspots list
+            Enqueue(ref buyingSpots, ref mapArray[1, 3]);
+            Enqueue(ref buyingSpots, ref mapArray[1, 7]);
+            Enqueue(ref buyingSpots, ref mapArray[4, 3]);
+            Enqueue(ref buyingSpots, ref mapArray[4, 5]);
+            Enqueue(ref buyingSpots, ref mapArray[8, 4]);
+            Enqueue(ref buyingSpots, ref mapArray[8, 6]);
+            Enqueue(ref buyingSpots, ref mapArray[9, 7]);
 
             int index = 0;
 
@@ -221,36 +227,7 @@ namespace ShoppingFrenzy
                         
                     }
                     #endregion
-                    #region Diagonal
-                    if (i != 0 && j != 0) //Checks limit values
-                    {
-                        if (mapArray[i - 1, j - 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[4] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j - 1].Node);
-                        }
-                    }
-                    if (i != 9 && j != 0) //Checks limit values
-                    {
-                        if (mapArray[i + 1, j - 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[5] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j - 1].Node);
-                        }
-                    }
-                    if (i != 0 && j != 9) //Checks limit values
-                    {
-                        if (mapArray[i - 1, j + 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[6] = new Edge(mapArray[i, j].Node, mapArray[i - 1, j + 1].Node);
-                        }
-                    }
-                    if (i != 9 && j != 9) //Checks limit values
-                    {
-                        if (mapArray[i + 1, j + 1].Walkable)
-                        {
-                            mapArray[i, j].Node.Edges[7] = new Edge(mapArray[i, j].Node, mapArray[i + 1, j + 1].Node);
-                        }
-                    }
-                    #endregion
+                   
                 }
             }
         }

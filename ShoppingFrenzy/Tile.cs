@@ -28,14 +28,20 @@ namespace ShoppingFrenzy
         public string TileType { get => tileType; set => tileType = value; }
         public int HValue { get => hValue; set => hValue = value; }
         public Texture2D Sprite { get => sprite; set => sprite = value; }
+        public string BuyItem { get => buyItem; set => buyItem = value; }
 
         public Tile()
         {
 
         }
 
-        //DIfferent tiles
-        public Tile(Vector2 startPosition, ContentManager content, string tileType)
+
+        public Tile(int value)
+        {
+            hValue = value;
+        }
+            //DIfferent tiles
+            public Tile(Vector2 startPosition, ContentManager content, string tileType)
         {
             position = startPosition;
             this.content = content;
@@ -78,37 +84,37 @@ namespace ShoppingFrenzy
                 case "BuyAxe":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Axe";
                     break;
                 case "BuyClaw":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Claw";
                     break;
                 case "BuyDagger":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Dagger";
                     break;
                 case "BuyMace":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Mace";
                     break;
                 case "BuyShuriken":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Shuriken";
                     break;
                 case "BuyStaff":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Axe";
+                    BuyItem = "Staff";
                     break;
                 case "ShopPay":
                     Sprite = content.Load<Texture2D>("FloorWhite");
                     Walkable = true;
-                    buyItem = "Pay";
+                    BuyItem = "Pay";
                     break;
             }
         }
@@ -118,16 +124,52 @@ namespace ShoppingFrenzy
             spriteBatch.Draw(Sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, new SpriteEffects(), 0f);
         }
 
-        public static void GenerateHValue(int targetTileX, int targetTileY, Shopper targetShopper)
+        public static void GenerateHValue(Shopper targetShopper, string item)
         {
+            int temp1 = 0;
+            int temp2 = 0;
             for (int i = 0; i < 10; i++)
             {
                 for (int k = 0; k < 10; k++)
                 {
-                    int temp1 = Math.Abs((i - targetTileX));
-                    int temp2 = Math.Abs((k - targetTileY));
+                    switch (item)
+                    {
+                        case "Axe":
+                             temp1 = Math.Abs((i - 1));
+                             temp2 = Math.Abs((k - 3));
+                            break;
 
-                    targetShopper.ShopperMap[i,k].HValue = (temp1 + temp2)*10;
+                        case "Shuriken":
+                             temp1 = Math.Abs((i - 1));
+                             temp2 = Math.Abs((k - 7));
+                            break;
+
+                        case "Staff":
+                             temp1 = Math.Abs((i - 4));
+                             temp2 = Math.Abs((k - 3));
+                            break;
+
+                        case "Dagger":
+                             temp1 = Math.Abs((i - 4));
+                             temp2 = Math.Abs((k - 5));
+                            break;
+
+                        case "Claw":
+                             temp1 = Math.Abs((i - 8));
+                             temp2 = Math.Abs((k - 4));
+                            break;
+
+                        case "Mace":
+                             temp1 = Math.Abs((i - 8));
+                             temp2 = Math.Abs((k - 6));
+                            break;
+
+                        case "Pay":
+                             temp1 = Math.Abs((i - 9));
+                             temp2 = Math.Abs((k - 7));
+                            break;
+                    }
+                    targetShopper.ShopperMap[i, k].HValue = (temp1 + temp2) * 10;
                 }
             }
                

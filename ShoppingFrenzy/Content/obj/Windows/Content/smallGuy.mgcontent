@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/smallGuy.png</SourceFile>
-  <SourceTime>2019-12-16T12:50:31.4106032+01:00</SourceTime>
-  <DestFile>C:/Users/Thor/source/repos/HAXMINATOR/ShoppingFrenzy/ShoppingFrenzy/Content/bin/Windows/Content/smallGuy.xnb</DestFile>
-  <DestTime>2019-12-18T13:54:33.9929221+01:00</DestTime>
+  <SourceFile>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/smallGuy.png</SourceFile>
+  <SourceTime>2019-12-16T14:11:27.020763+01:00</SourceTime>
+  <DestFile>C:/Users/mikke/Source/Repos/ShoppingFrenzy/ShoppingFrenzy/Content/bin/Windows/Content/smallGuy.xnb</DestFile>
+  <DestTime>2019-12-19T10:52:10.7120116+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
