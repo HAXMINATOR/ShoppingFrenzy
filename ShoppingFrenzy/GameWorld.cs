@@ -78,6 +78,7 @@ namespace ShoppingFrenzy
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             
+            
             foreach (Shopper shopper in Shoppers)
             {
                 shopper.Update(gameTime);
@@ -161,6 +162,7 @@ namespace ShoppingFrenzy
             mapArray[4, 5] = new Tile(mapArray[4, 5].Position, Content, "BuyDagger");
             mapArray[8, 4] = new Tile(mapArray[8, 4].Position, Content, "BuyClaw");
             mapArray[8, 6] = new Tile(mapArray[8, 6].Position, Content, "BuyMace");
+            mapArray[9, 7] = new Tile(mapArray[9, 7].Position, Content, "ShopPay");
             #endregion
 
             int index = 0;
