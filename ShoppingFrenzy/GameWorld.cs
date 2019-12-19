@@ -295,16 +295,12 @@ namespace ShoppingFrenzy
                 int currentGValue = 10;
                 int tempTileX = customer.TileXPosition;
                 int tempTileY = customer.TileYPosition;
-                int tempFvalue1;
-                int tempFvalue2;
-                int tempFvalue3;
-                int tempFvalue4;
                 bool pathing = true;
-                if ((customer.TileXPosition == targetTileX - 1 || customer.TileXPosition == targetTileX + 1) && (customer.TileYPosition == targetTileY - 1 || customer.TileYPosition == targetTileY + 1))
-                {
-                    //Go to tile and grab item
-                }
 
+               
+                
+                //Step 2: Check 4 squares around shopper, if not on open, closed or unwalkable, add to open, pick node with lowest G + H value
+                //Step 3: put picked node unto pathing / closed list, set picked node as current checker, repeat previous code
                 Tile[] path = new Tile[0]; //Path array
                 Tile workaroundTile = customer.CurrentNode.Tile;
                 Enqueue(ref path, ref workaroundTile); //Adds the customers current node to the path array
@@ -316,9 +312,16 @@ namespace ShoppingFrenzy
                         smallestHTile = customer.CurrentNode.Edges[i].Child.Tile; //Takes the first non-null tile and adds it to smallestHTile for later comparison
                     }
                 }
-                
+
                 while (pathing == true)
                 {
+                    //Step 1: If within 1 tile of goal, enter goal
+                    if (((customer.TileXPosition == targetTileX - 1 || customer.TileXPosition == targetTileX + 1) && customer.TileYPosition == targetTileY) || ((customer.TileYPosition == targetTileY + 1 || customer.TileYPosition == targetTileY - 1) && customer.TileXPosition == targetTileX))
+                    {
+                        //Go to tile and grab item
+                    }
+
+
                     for (int i = 0; i < path[path.Length - 1].Node.Edges.Length; i++) //Goes through all the edges of the the last node in the path array
                     {
                         if (path[path.Length - 1].Node.Edges[i] != null && path[path.Length - 1].Node.Edges[i].Child.Tile.HValue < smallestHTile.HValue) //Makes sure the current edge isn't null. Compares HValues of the current edge's child's tile and the currently lowest HValue tile found
@@ -371,10 +374,7 @@ namespace ShoppingFrenzy
 
                     //MathHelper.Min(MathHelper.Min(tempFvalue1, tempFvalue2), MathHelper.Min(tempFvalue3, tempFvalue4));
 
-                    if (smallestHTile == MapArray[targetTileX, targetTileY]) //If the smallest found tile is the target tile
-                    {
-                        pathing = false;
-                    }
+                   
                 }
             }
         }
